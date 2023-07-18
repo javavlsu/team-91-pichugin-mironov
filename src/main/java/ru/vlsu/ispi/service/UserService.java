@@ -16,6 +16,7 @@ import java.util.Optional;
 public class UserService implements UserDetailsService {
     @Autowired
     UserRepository userRepository;
+    @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
