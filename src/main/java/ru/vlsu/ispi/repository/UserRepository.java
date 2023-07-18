@@ -6,6 +6,6 @@ import ru.vlsu.ispi.entity.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-    User findByUsername(String username);
+    User findByName(String name);
     User findByLogin(String login);
 }
