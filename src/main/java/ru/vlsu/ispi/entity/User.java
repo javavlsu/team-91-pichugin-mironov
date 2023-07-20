@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.Collection;
+import java.util.Set;
 
 @Data
 @Entity
@@ -26,7 +27,8 @@ public class User implements UserDetails {
     private String username;
     @Size(min=3, message = "Не меньше 3 знаков")
     private String password;
-    private String role;
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Set<Role> roles;
 
     public User(){
 
@@ -34,7 +36,7 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return getRoles();
     }
 
     @Override
