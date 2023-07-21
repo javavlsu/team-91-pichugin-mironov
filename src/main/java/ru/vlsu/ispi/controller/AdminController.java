@@ -3,11 +3,14 @@ package ru.vlsu.ispi.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.View;
+import ru.vlsu.ispi.entity.User;
 import ru.vlsu.ispi.service.UserService;
+
+import javax.validation.Valid;
 
 @Controller
 public class AdminController {
@@ -21,12 +24,39 @@ public class AdminController {
     }
 
     @PostMapping("/admin")
-    public String  deleteUser(@RequestParam(required = true, defaultValue = "" ) Long id_user,
+    public String deleteUser(@RequestParam(required = true, defaultValue = "" ) Long id_user,
                               @RequestParam(required = true, defaultValue = "" ) String action,
                               Model model) {
         if (action.equals("delete")){
             userService.deleteUser(id_user);
         }
+
+        if (action.equals("update")){
+            model.addAttribute("user",userService.findUserById(id_user));
+            model.addAttribute("userForm", new User());
+            return "updateUser";
+        }
+        return "redirect:/admin";
+    }
+
+    @GetMapping("/updateUser")
+    public String userInfo(Model model){
+
+        return "updateUser";
+    }
+
+    @PostMapping("/updateUser")
+    public String addUser(@ModelAttribute("userForm") @Valid User userForm, BindingResult bindingResult, Model model) {
+
+        if (bindingResult.hasErrors()) {
+            return "updateUser";
+        }
+
+        if (!userService.saveUser(userForm)){
+            model.addAttribute("usernameError", "Пользователь с таким логином уже существует");
+            return "updateUser";
+        }
+
         return "redirect:/admin";
     }
 

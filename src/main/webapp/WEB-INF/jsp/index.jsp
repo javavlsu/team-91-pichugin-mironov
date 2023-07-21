@@ -6,7 +6,7 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>index</title>
+        <title>Главная</title>
     </head>
     <body>
         <h3>${pageContext.request.userPrincipal.name}</h3>

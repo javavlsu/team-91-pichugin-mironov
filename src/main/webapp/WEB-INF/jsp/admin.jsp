@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>UsersList</title>
+    <title>Список пользователей</title>
 </head>
 
 <body>
@@ -24,6 +24,14 @@
                 <td>${user.password}</td>
                 <td>
                     <c:forEach items="${user.roles}" var="role">${role.name}; </c:forEach>
+                </td>
+                <td>
+                    <form action="${pageContext.request.contextPath}/admin" method="post">
+                        <input type="hidden" name="id_user" value="${user.id_user}"/>
+                        <input type="hidden" name="action" value="update"/>
+                        <button type="submit">Update</button>
+                    </form>
+
                 </td>
                 <td>
                     <form action="${pageContext.request.contextPath}/admin" method="post">
