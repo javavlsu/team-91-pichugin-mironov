@@ -1,0 +1,133 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    background: #7CA8FF;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.header {
+    position: absolute;
+    width: 100%;
+    height: 10%;
+    left: 0px;
+    top: 0px;
+    min-width: 20%;
+    background: #6296E4;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    min-width: 20%;
+    min-height: 50%;
+}
+
+.header-intro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.3%;
+    margin-left: 15%;
+    margin-right: 15%;
+    min-width: none;
+}
+
+.logo {
+    text-decoration: none;
+    color: white;
+    font: 'Roboto';
+    font-size: 24pt;
+    min-width: 20%;
+    min-height: 100%;
+}
+
+.nav_link {
+    display: inline-block;
+    margin-left: 10%;
+    text-decoration: none;
+    color: white;
+    font: 'Roboto';
+    font-size: 24pt;
+    white-space: nowrap;
+    max-height: 100%;
+    min-width: auto;
+    min-height: 100%;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    margin-top: 13%;
+    min-width: 50%;
+    min-height: 100%;
+}
+
+.main_title {
+    text-decoration: none;
+    color: white;
+    font: 'Roboto';
+    font-size: 45pt;
+    margin-bottom: 10%;
+    line-height: 150.02%;
+}
+
+.main_button {
+    text-decoration: none;
+    align-items: center;
+    text-align: center;
+    margin-top: 10%;
+    padding: 15px;
+}
+
+.main_link {
+    margin: 10% auto 0% auto;
+    padding: 5px 20px 5px 20px;
+    height: auto;
+    border-radius: 51px;
+    border: 2px solid white;
+    background: white;
+    color: #6296E4;
+    font-size: 36px;
+    text-decoration: none;
+}
+
+.main_image {
+    /* margin-left: 25%; */
+    float: right;
+    width: 70%;
+    min-width: 60%;
+    height: 100%;
+    min-height: 55%;
+    border-radius: 0px 254px 254px 0px;
+    box-shadow: 0px 12px 15px rgba(0, 0, 0, 0.25);
+    object-fit: cover;
+}
+
+.content {
+    justify-content: space-between;
+    max-width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    color: #FFFFFF;
+    width: 100%;
+    margin-top: 2%;
+}
+
+.aboutF {
+    float: right;
+}
+
+.footerA {
+    text-decoration: none;
+    color: #FFFFFF;
+}

@@ -5,22 +5,36 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" />
-        <title>Главная</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="${contextPath}/resources/css/index.css">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Поиск друзей</title>
     </head>
+
+
     <body>
-        <h3>${pageContext.request.userPrincipal.name}</h3>
+        <header class="header">
+            <div class="header-intro">
+                <div class="logo">Logo</div>
+                <nav class="nav">
+                    <a class="nav_link" href="#">Регистрация</a>
+                    <a class="nav_link" href="#">Вход</a>
+                </nav>
+            </div>
+        </header>
 
-        <sec:authorize access="!isAuthenticated()">
-            <h4><a href="/login">Войти</a></h4>
-            <h4><a href="/registration">Зарегистрироваться</a></h4>
-        </sec:authorize>
+        <div class="main">
+            <div class="content">
+                <div class="main_title">Найди друзей по интересам!</div>
+                <a class="main_link" href="#">Начать!</a>
+            </div>
+            <div class="content">
+                <img class="main_image" src="https://sun9-87.userapi.com/impg/JPkYQXbtvi8jLRfiOPc5UrMHoFyEwEjZtYwhUw/dFfjcdjQPjE.jpg?size=1000x667&quality=96&sign=c11e00d855e85408e1d092e21a5c13ab&type=album" runat="server" alt="Фото друзей">
+            </div>
+        </div>
 
-        <sec:authorize access="isAuthenticated()">
-            <h4><a href="/logout">Выйти</a></h4>
-        </sec:authorize>
 
-        <h4><a href="/admin">Пользователи (только админ)</a></h4>
-
+        <hr style="margin-top: 15%;">
     </body>
 </html>
