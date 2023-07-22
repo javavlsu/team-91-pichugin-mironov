@@ -14,8 +14,9 @@ public class Hobby implements GrantedAuthority {
     @Id
     private Long id;
     private String name;
+    private String category;
     @Transient
-    @ManyToMany(mappedBy = "hobbys")
+    @ManyToMany(mappedBy = "hobby")
     private Set<User> users;
     public Hobby() {
 
