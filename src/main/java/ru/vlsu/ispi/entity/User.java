@@ -31,7 +31,8 @@ public class User implements UserDetails {
     private Set<Role> roles;
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Hobby> hobby;
-
+    @OneToMany(fetch = FetchType.EAGER)
+    private Set<Post> post;
     public User(){
 
     }
