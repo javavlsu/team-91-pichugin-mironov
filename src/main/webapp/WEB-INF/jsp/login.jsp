@@ -3,27 +3,43 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <title>Log in with your account</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="${contextPath}/resources/css/login.css">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Вход</title>
+    </head>
 
-<body>
-<sec:authorize access="isAuthenticated()">
-    <% response.sendRedirect("/"); %>
-</sec:authorize>
-<div>
-    <form method="POST" action="/login">
-        <h2>Вход в систему</h2>
-        <div>
-            <input name="username" type="text" placeholder="Username"
-                   autofocus="true"/>
-            <input name="password" type="password" placeholder="Password"/>
-            <button type="submit">Log In</button>
-            <h4><a href="/registration">Зарегистрироваться</a></h4>
+    <body>
+        <header class="header">
+            <div class="header-intro">
+                <div class="logo">Logo</div>
+                <nav class="nav">
+                    <a class="nav_link" href="/">Начальная страница</a>
+                </nav>
+            </div>
+        </header>
+
+        <div class="main">
+            <form method="POST" action="/login" class="content">
+                <div class="login">
+                    <div class="loginText">
+                        Логин:<p>
+                        <input  name="username" type="text" placeholder="Username" autofocus="true"
+                                required minlength="2" maxlength="20" class="inputLogin">
+                    </div>
+                    <div class="loginText">
+                        <p>Пароль:</p>
+                        <input name="password" type="password" placeholder="Password"
+                               required minlength="2" maxlength="50" class="inputLogin">
+                    </div>
+                </div>
+                <input type="submit" value="Войти" class="button">
+                <hr style="width: 90%; visibility: hidden;">
+            </form>
         </div>
-    </form>
-</div>
 
-</body>
+        <hr style="margin-top: 15%;">
+    </body>
 </html>

@@ -26,6 +26,7 @@
 
         <div class="main">
             <div class="content">
+                ${pageContext.request.userPrincipal.name} <!-- Это временно, чтобы видеть авторизованного пользователя -->
                 <div class="main_title">Найди друзей по интересам!</div>
                 <a class="main_link" href="/registration">Начать!</a>
             </div>
