@@ -26,12 +26,12 @@
                 <div class="login">
                     <div class="loginText">
                         Логин:<p>
-                        <input  name="username" type="text" placeholder="Username" autofocus="true"
+                        <input  name="username" type="text" placeholder="" autofocus="true"
                                 required minlength="2" maxlength="20" class="inputLogin">
                     </div>
                     <div class="loginText">
                         <p>Пароль:</p>
-                        <input name="password" type="password" placeholder="Password"
+                        <input name="password" type="password" placeholder=""
                                required minlength="2" maxlength="50" class="inputLogin">
                     </div>
                 </div>
