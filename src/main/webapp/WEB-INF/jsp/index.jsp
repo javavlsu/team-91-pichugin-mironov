@@ -18,6 +18,7 @@
             <div class="header-intro">
                 <div class="logo">Logo</div>
                 <nav class="nav">
+                    <a class="nav_link" href="/logout">Выход</a>
                     <a class="nav_link" href="/registration">Регистрация</a>
                     <a class="nav_link" href="/login">Вход</a>
                 </nav>
