@@ -1,0 +1,462 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    background: #7CA8FF;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.header {
+    position: absolute;
+    width: 100%;
+    height: 10%;
+    left: 0px;
+    top: 0px;
+    min-width: 20%;
+    background: #6296E4;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    min-width: 20%;
+    min-height: 50%;
+}
+
+.header-intro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.3%;
+    margin-left: 15%;
+    margin-right: 15%;
+    min-width: none;
+}
+
+.logo {
+    text-decoration: none;
+    color: white;
+    font-size: 24pt;
+    min-width: 20%;
+    min-height: 100%;
+}
+
+.nav_link_find {
+    display: inline-block;
+    text-decoration: none;
+    color: #6296E4;
+    font-size: 24pt;
+    background-color: #FFFFFF;
+    border-radius: 51px;
+    padding: 0 15px 0 15px;
+}
+
+.nav_link {
+    display: inline-block;
+    margin-left: 10%;
+    text-decoration: none;
+    color: white;
+    font: 'Roboto';
+    font-size: 24pt;
+    white-space: nowrap;
+    max-height: 100%;
+    min-width: auto;
+    min-height: 100%;
+}
+
+.navImg {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    padding: 0% 5%;
+}
+
+.PostImg {
+    width: 90%;
+    height: 385px;
+    border-radius: 20px;
+}
+
+.main {
+    align-items: center;
+    margin: 13% auto 0 auto;
+    min-width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.right {
+    margin: 0% 0% 3% auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.createPost {
+    font-size: 24px;
+}
+
+.post {
+    text-align: center;
+    margin: 0% auto 5% auto;
+    width: 590px;
+    background: #6296E4;
+    box-shadow: 0px 12px 15px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+.findFriends {
+    text-align: center;
+    border-radius: 51px;
+    border: 2px solid white;
+    background: white;
+    color: #6296E4;
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 250px;
+    box-shadow: 0px 12px 15px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.title {
+    text-align: left;
+    color: #FFFFFF;
+    font-size: 21px;
+    font-weight: bold;
+    padding: 3% 5% 0% 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.titleLeft {
+    color: #FFFFFF;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 3% 5% 0% 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titleLeftIn {
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 21px;
+    /*font-weight: bold;*/
+    padding: 3% 5% 0% 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titleHobby {
+    text-align: left;
+    color: #FFFFFF;
+    font-size: 21px;
+    font-weight: bold;
+    padding: 0% 5% 0% 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu {
+    background-color: #000000;
+    width: 25px;
+    height: 5px;
+}
+
+.topmenu > li {
+    display: inline-block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.submenu {
+    z-index: 4;
+    width: 200px;
+    padding: 15px 10px 15px 10px;
+    text-align: left;
+    background: #5e91dd;
+    border-radius: 5px;
+    box-shadow: 0 0 30px rgba(0,0,0,.2);
+    box-sizing: border-box;
+    visibility: hidden;
+    opacity: 0;
+    transform: translate(-50%, 20px);
+    transition: .2s;
+    list-style-type: none;
+}
+
+.ali {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.titleNiz {
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 22px;
+    padding: 0% 5% 0% 5%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+}
+
+.dateTime {
+    text-align: left;
+    padding-left: 1%;
+    padding-bottom: 2%;
+    font-size: 16px;
+    color: #d6d6d6;
+}
+
+.dateTimePost {
+    text-align: left;
+    padding-top: 2%;
+    padding-left: 5%;
+    padding-bottom: 2%;
+    font-size: 16px;
+    color: #d6d6d6;
+    display: flex;
+}
+
+.ProfilePost {
+    text-align: left;
+    padding-left: 1%;
+    font-size: 16px;
+    color: #d6d6d6;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    flex-wrap: nowrap;
+}
+
+.PhotoPost {
+    text-align: left;
+    padding-left: 1%;
+    font-size: 16px;
+    color: #d6d6d6;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    flex-wrap: nowrap;
+}
+
+
+.titleD {
+    text-align: left;
+    color: #FFFFFF;
+    font-size: 21px;
+    padding: 1% 5% 1% 5%;
+}
+
+.hobby {
+    text-align: left;
+    color: #FFFFFF;
+    font-size: 21px;
+    padding: 1% 5% 2% 5%;
+}
+
+.textDescription {
+    text-align: left;
+    color: #FFFFFF;
+    font-size: 18px;
+    margin: 0% auto 2% auto;
+    padding: 1% 2% 1% 2%;
+    background: #AAC4FF;
+    border-radius: 10px;
+    width: 86%;
+}
+
+.button {
+    float: right;
+    margin: 1% 5% 3% 0%;
+    border-radius: 51px;
+    border: 2px solid white;
+    background: white;
+    color: #6296E4;
+    font-size: 24px;
+    width: 200px;
+    cursor: pointer;
+}
+
+.buttonLeft {
+    display: flex;
+    margin: 5% auto 5% auto;
+    border-radius: 51px;
+    border: 2px solid white;
+    background: white;
+    color: #6296E4;
+    font-size: 24px;
+    width: 200px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+}
+
+.wButton {
+    margin: 3% auto 3% auto;
+    border-radius: 51px;
+    border: 2px solid white;
+    background: white;
+    color: #6296E4;
+    font-size: 24px;
+    width: 237px;
+    cursor: pointer;
+}
+
+.bMenu {
+    margin: 0% auto;
+    display: flex;
+    padding: 1% 5% 2% 5%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content {
+    background: #6296e4;
+    width: 247px;
+    margin: 0 0 2% auto;
+    border-radius: 10px;
+    border: 2px solid #4876bb;
+}
+
+.contentLeft {
+    background: #6296e4;
+    width: 330px;
+    margin: 0 auto 0 0;
+    border-radius: 15px;
+    box-shadow: 0px 12px 15px rgb(0 0 0 / 25%);
+}
+
+.contentLeftIn {
+    background: #6296e4;
+    width: 300px;
+    margin: 0 auto 4% auto;
+    border-radius: 15px;
+    border: 2px solid #4876bb;
+}
+
+.buttonMenu {
+    float: right;
+    margin: 1% 0% 3% 0%;
+    border-radius: 51px;
+    border: 2px solid white;
+    background: white;
+    color: #6296E4;
+    text-decoration: none;
+    font-size: 20px;
+    width: 150px;
+    cursor: pointer;
+}
+
+.buttonRight {
+    margin: 0% auto 30px auto;
+    border-radius: 51px;
+    border: 2px solid white;
+    background: white;
+    color: #6296E4;
+    font-size: 24px;
+    width: 250px;
+    box-shadow: 0px 12px 15px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.commentSection {
+    padding-bottom: 3%;
+}
+
+.comment {
+    width: 90%;
+    margin: 2% auto;
+    padding: 1% 1% 1% 1%;
+    text-align: left;
+    background: #AAC4FF;
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.textComment {
+    color: #FFFFFF;
+    font-size: 18px;
+    padding: 1% 2% 1% 2%;
+    width: 362px;
+}
+
+.timeComment {
+    float: right;
+    color: #FFFFFF;
+    font-size: 18px;
+    padding: 1% 2% 1% 0%;
+}
+
+.userComment {
+    text-align: left;
+    color: #FFFFFF;
+    font-size: 18px;
+    padding: 1% 0% 1% 2%;
+}
+
+.contentF {
+    justify-content: space-between;
+    max-width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    color: #FFFFFF;
+    width: 100%;
+    margin-top: 2%;
+    margin-bottom: 5%;
+}
+
+.aboutF {
+    float: right;
+}
+
+.footerA {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.inputSel {
+    background: #ffffff;
+    border-radius: 10px;
+    border: 2px solid #4876bb;
+    font-size: 21px;
+    color: #6296E4;
+    height: auto;
+    padding: 1% 2% 1% 2%;
+    margin: 3% auto;
+    word-break: break-word;
+    white-space: normal;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+.hobbyDis {
+    text-align: left;
+    color: #FFFFFF;
+    font-size: 18px;
+    margin: 0% auto 2% auto;
+    padding: 1% 2% 1% 2%;
+    background: #AAC4FF;
+    border-radius: 10px;
+    width: 507px;
+}
