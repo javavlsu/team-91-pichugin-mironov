@@ -68,4 +68,14 @@ public class UserService implements UserDetailsService {
         return true;
     }
 
+    public boolean updateUser(User user) {
+        User userFromDB = userRepository.findByUsername(user.getUsername());
+
+        user.setRoles(userFromDB.getRoles());
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        userRepository.save(user);
+
+        return true;
+    }
+
 }

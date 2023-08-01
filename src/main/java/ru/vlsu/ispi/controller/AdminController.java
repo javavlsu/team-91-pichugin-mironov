@@ -41,19 +41,19 @@ public class AdminController {
 
     @GetMapping("/updateUser")
     public String userInfo(Model model){
-
         return "updateUser";
     }
 
     @PostMapping("/updateUser")
-    public String addUser(@ModelAttribute("userForm") @Valid User userForm, BindingResult bindingResult, Model model) {
+    public String addUser(@ModelAttribute("userForm") @Valid User userForm,
+                          BindingResult bindingResult,
+                          Model model) {
 
         if (bindingResult.hasErrors()) {
             return "updateUser";
         }
 
-        if (!userService.saveUser(userForm)){
-            model.addAttribute("usernameError", "Пользователь с таким логином уже существует");
+        if (!userService.updateUser(userForm)){
             return "updateUser";
         }
 

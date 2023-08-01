@@ -20,7 +20,6 @@ public class UserController {
     @GetMapping("/profile")
     public String profile(@RequestParam(required = true, defaultValue = "" ) String username, Model model) {
         model.addAttribute("user", userService.loadUserByUsername(username));
-//        model.addAttribute("user", userService.findUserById(13L));
         return "profile";
     }
 }
