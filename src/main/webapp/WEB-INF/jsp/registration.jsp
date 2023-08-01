@@ -50,7 +50,7 @@
 
                         <div class="Text">
                             <p>Пол: </p>
-                            <form:select path="pol" required="" cssClass="pol">
+                            <form:select path="pol" required="" cssClass="inputSel">
                                 <form:option value="true">Мужской</form:option>
                                 <form:option value="false">Женский</form:option>
                             </form:select>

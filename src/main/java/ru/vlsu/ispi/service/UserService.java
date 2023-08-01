@@ -14,6 +14,7 @@ import ru.vlsu.ispi.repository.UserRepository;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -72,7 +73,9 @@ public class UserService implements UserDetailsService {
         User userFromDB = userRepository.findByUsername(user.getUsername());
 
         user.setRoles(userFromDB.getRoles());
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        if (!Objects.equals(user.getPassword(), userFromDB.getPassword())) {
+            user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        }
         userRepository.save(user);
 
         return true;

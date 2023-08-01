@@ -21,7 +21,7 @@ public class User implements UserDetails {
     private String lastName;
     private String userDescription;
     private String linkMes;
-    private LocalDate birthday;     // 2023-07-15 в таком формате
+    private String birthday;
     private Boolean pol;
     @Size(min=3, message = "Не меньше 3 знаков")
     private String username;

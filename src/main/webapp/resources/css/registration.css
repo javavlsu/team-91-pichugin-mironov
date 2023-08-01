@@ -175,3 +175,19 @@ footer {
     text-decoration: none;
     color: #FFFFFF;
 }
+
+.inputSel {
+    background: #5389DA;
+    border-radius: 10px;
+    border: 2px solid #4876bb;
+    font-size: 21px;
+    color: white;
+    height: auto;
+    padding: 1% 2% 1% 2%;
+    word-break: break-word;
+    white-space: normal;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+}

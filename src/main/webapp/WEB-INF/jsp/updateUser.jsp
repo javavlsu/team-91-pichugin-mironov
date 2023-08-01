@@ -52,10 +52,10 @@
 
                 </div>
 
-<%--                <div class="Text">--%>
-<%--                    Дата рождения:--%>
-<%--                    <form:input type="date" path="birthday" value="${user.birthday}" class="input"/>--%>
-<%--                </div>--%>
+                <div class="Text">
+                    Дата рождения:
+                    <form:input type="date" path="birthday" value="${user.birthday}" class="input"/>
+                </div>
 
                 <div class="Text">
                     Пол:
