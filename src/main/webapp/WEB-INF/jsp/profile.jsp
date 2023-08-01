@@ -80,9 +80,8 @@
                             </div>
                         </div>
 
-                        <form method="POST" action="/EditUser">
+                        <form method="GET" action="/editProfile">
                             <input type="hidden" name="id_user" value="${user.id_user}"/>
-                            <input type="hidden" name="action" value="update"/>
                             <button type="submit" class="buttonEdit">Редактировать</button>
                         </form>
 

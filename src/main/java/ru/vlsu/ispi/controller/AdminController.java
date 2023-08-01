@@ -5,8 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.View;
 import ru.vlsu.ispi.entity.User;
 import ru.vlsu.ispi.service.UserService;
 
@@ -45,9 +43,9 @@ public class AdminController {
     }
 
     @PostMapping("/updateUser")
-    public String addUser(@ModelAttribute("userForm") @Valid User userForm,
-                          BindingResult bindingResult,
-                          Model model) {
+    public String updateUser(@ModelAttribute("userForm") @Valid User userForm,
+                             BindingResult bindingResult,
+                             Model model) {
 
         if (bindingResult.hasErrors()) {
             return "updateUser";
