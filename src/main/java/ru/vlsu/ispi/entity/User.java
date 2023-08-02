@@ -39,6 +39,9 @@ public class User implements UserDetails {
     @OneToMany(mappedBy="user")
     private Set<Comment> comment;
 
+    @OneToMany(mappedBy="user")
+    private Set<Warning> warning;
+
     public User(){
 
     }
