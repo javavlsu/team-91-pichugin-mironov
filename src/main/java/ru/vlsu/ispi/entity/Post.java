@@ -22,11 +22,13 @@ public class Post implements GrantedAuthority {
     @ManyToOne
     @JoinColumn(name="id_user", nullable = false)
     private User user;
-    //private Set<User> users;
 
     @Transient
     @ManyToMany(mappedBy = "post")
     private Set<Hobby> hobby;
+
+    @OneToMany(mappedBy="post")
+    private Set<Comment> comment;
 
     public Post() {
 

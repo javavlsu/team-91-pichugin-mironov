@@ -23,6 +23,7 @@ public class User implements UserDetails {
     private String linkMes;
     private String birthday;
     private Boolean pol;
+
     @Size(min=3, message = "Не меньше 3 знаков")
     private String username;
     @Size(min=3, message = "Не меньше 3 знаков")
@@ -34,6 +35,9 @@ public class User implements UserDetails {
 
     @OneToMany(mappedBy="user")
     private Set<Post> post;
+
+    @OneToMany(mappedBy="user")
+    private Set<Comment> comment;
 
     public User(){
 
