@@ -60,23 +60,22 @@
             </div>
 
             <div style="display: flex; flex-direction: column-reverse;">
-                <c:forEach items="" var="post">
+                <c:forEach items="${allPosts}" var="post">
                 <div class="post">
                     <div class="title">
                         <div>
-                            <b>${post.title}</b>
-                            <!-- Ниже пока не переделывал! -->
+                            <b>${post.name}</b>
                         </div>
 
                     </div>
                     <div class="dateTimePost">
-                        <a asp-controller="User" asp-action="AnotherUser" asp-route-id="@pst.UserID">
+                        <a href="#">
                             <img src="https://clck.ru/33MEpQ" alt="фото пользователя" class="navImg">
                         </a>
                         <div class="ProfilePost">
                             <a asp-controller="User" asp-action="AnotherUser" asp-route-id="@pst.UserID" style="color: white;">@pst.LastName @pst.Name</a>
 
-                            <div>@pst.StartTime</div>
+                            <div></div>
                         </div>
 
                     </div>
@@ -96,77 +95,77 @@
                         Хобби:
                     </div>
                     <div class="hobby">
-                        @switch (pst.HobbyID)
-                        {
-                        case 1:
-                        <div class="hobbyDis">Интеллектуальные игры</div>
-                        break;
-                        case 35:
-                        <div class="hobbyDis">Спорт</div>
-                        break;
-                        case 36:
-                        <div class="hobbyDis">Музыка</div>
-                        break;
-                        case 37:
-                        <div class="hobbyDis">Кино</div>
-                        break;
-                        case 38:
-                        <div class="hobbyDis">Творчество</div>
-                        break;
-                        case 39:
-                        <div class="hobbyDis">Путешествия</div>
-                        break;
-                        case 40:
-                        <div class="hobbyDis">Коллекционирование</div>
-                        break;
-                        case 41:
-                        <div class="hobbyDis">Компьютерные игры</div>
-                        break;
-                        case 42:
-                        <div class="hobbyDis">Мода</div>
-                        break;
-                        case 43:
-                        <div class="hobbyDis">Разное</div>
-                        break;
-                        case 100:
-                        <div class="hobbyDis">-</div>
-                        break;
-                        }
+<%--                        @switch (pst.HobbyID)--%>
+<%--                        {--%>
+<%--                        case 1:--%>
+<%--                        <div class="hobbyDis">Интеллектуальные игры</div>--%>
+<%--                        break;--%>
+<%--                        case 35:--%>
+<%--                        <div class="hobbyDis">Спорт</div>--%>
+<%--                        break;--%>
+<%--                        case 36:--%>
+<%--                        <div class="hobbyDis">Музыка</div>--%>
+<%--                        break;--%>
+<%--                        case 37:--%>
+<%--                        <div class="hobbyDis">Кино</div>--%>
+<%--                        break;--%>
+<%--                        case 38:--%>
+<%--                        <div class="hobbyDis">Творчество</div>--%>
+<%--                        break;--%>
+<%--                        case 39:--%>
+<%--                        <div class="hobbyDis">Путешествия</div>--%>
+<%--                        break;--%>
+<%--                        case 40:--%>
+<%--                        <div class="hobbyDis">Коллекционирование</div>--%>
+<%--                        break;--%>
+<%--                        case 41:--%>
+<%--                        <div class="hobbyDis">Компьютерные игры</div>--%>
+<%--                        break;--%>
+<%--                        case 42:--%>
+<%--                        <div class="hobbyDis">Мода</div>--%>
+<%--                        break;--%>
+<%--                        case 43:--%>
+<%--                        <div class="hobbyDis">Разное</div>--%>
+<%--                        break;--%>
+<%--                        case 100:--%>
+<%--                        <div class="hobbyDis">-</div>--%>
+<%--                        break;--%>
+<%--                        }--%>
                     </div>
 
                     <hr style="width: 90%; visibility: hidden;">
-                    <div class="bMenu">
-                        @if (User.FindFirst(x => x.Type == ClaimTypes.Name).Value != pst.Login)
-                        {
-                        <form method="post" asp-antiforgery="true" asp-action="WarningU" asp-route-id="@pst.PostID" asp-controller="User" class="content">
-                            <select name="WarningDescription" class="inputSel">
-                                <option value="Спам">Спам</option>
-                                <option value="Запрещённый товар">Запрещённый товар</option>
-                                <option value="Обман">Обман</option>
-                                <option value="Население и вражда">Население и вражда</option>
-                            </select>
-                            <input type="submit" class="wButton" value="Отправить жалобу" />
-                            @*<a class="buttonMenu" asp-action="WarningU" asp-route-id="@pst.PostID" asp-controller="User">Пожаловаться</a>*@
-                        </form>
-                        }
+<%--                    <div class="bMenu">--%>
+<%--                        @if (User.FindFirst(x => x.Type == ClaimTypes.Name).Value != pst.Login)--%>
+<%--                        {--%>
+<%--                        <form method="post" asp-antiforgery="true" asp-action="WarningU" asp-route-id="@pst.PostID" asp-controller="User" class="content">--%>
+<%--                            <select name="WarningDescription" class="inputSel">--%>
+<%--                                <option value="Спам">Спам</option>--%>
+<%--                                <option value="Запрещённый товар">Запрещённый товар</option>--%>
+<%--                                <option value="Обман">Обман</option>--%>
+<%--                                <option value="Население и вражда">Население и вражда</option>--%>
+<%--                            </select>--%>
+<%--                            <input type="submit" class="wButton" value="Отправить жалобу" />--%>
+<%--                            @*<a class="buttonMenu" asp-action="WarningU" asp-route-id="@pst.PostID" asp-controller="User">Пожаловаться</a>*@--%>
+<%--                        </form>--%>
+<%--                        }--%>
 
-                        @if (User.FindFirst(x => x.Type == ClaimTypes.Name).Value == pst.Login)
-                        {
-                        <a class="buttonMenu" asp-action="EditPostU" asp-route-id="@pst.PostID" asp-controller="User">Редактировать</a>
-                        <a class="buttonMenu" asp-action="DeletePostU" asp-route-id="@pst.PostID" asp-controller="User">Удалить</a>
-                        }
+<%--                        @if (User.FindFirst(x => x.Type == ClaimTypes.Name).Value == pst.Login)--%>
+<%--                        {--%>
+<%--                        <a class="buttonMenu" asp-action="EditPostU" asp-route-id="@pst.PostID" asp-controller="User">Редактировать</a>--%>
+<%--                        <a class="buttonMenu" asp-action="DeletePostU" asp-route-id="@pst.PostID" asp-controller="User">Удалить</a>--%>
+<%--                        }--%>
 
-                    </div>
+<%--                    </div>--%>
                 </div>
                 </c:forEach>
 
             </div>
             <div class="right">
                 <form class="createPost" action="" method="POST">
-                    <button type="submit" value="Создать пост" class="buttonRight"/>
+                    <input type="submit" value="Создать пост" class="buttonRight"/>
                 </form>
                 <form class="createPost" action="" method="POST">
-                    <button type="submit" value="Найти друзей" class="findFriends"/>
+                    <input type="submit" value="Найти друзей" class="findFriends"/>
                 </form>
             </div>
         </div>

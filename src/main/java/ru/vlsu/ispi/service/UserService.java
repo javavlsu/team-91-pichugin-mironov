@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import ru.vlsu.ispi.entity.Role;
 import ru.vlsu.ispi.entity.User;
 import ru.vlsu.ispi.repository.HobbyRepository;
+import ru.vlsu.ispi.repository.PostRepository;
 import ru.vlsu.ispi.repository.RoleRepository;
 import ru.vlsu.ispi.repository.UserRepository;
 
@@ -21,10 +22,6 @@ import java.util.Optional;
 public class UserService implements UserDetailsService {
     @Autowired
     UserRepository userRepository;
-    @Autowired
-    RoleRepository roleRepository;
-    @Autowired
-    HobbyRepository hobbyRepository;
     @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
 

@@ -18,11 +18,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/posts")
-    public String postsList(Model model) {
-        return "posts";
-    }
-
     @GetMapping("/profile")
     public String profile(@RequestParam(required = true, defaultValue = "" ) String username, Model model) {
         model.addAttribute("user", userService.loadUserByUsername(username));
