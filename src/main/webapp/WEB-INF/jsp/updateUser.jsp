@@ -43,18 +43,21 @@
 
                 <div class="Text">
                     Фамилия:
-                    <form:input type="text" path="lastName" value="${user.lastName}" class="input"/>
+                    <form:input type="text" path="lastName" value="${user.lastName}"
+                                required="required" minlength="2" maxlength="20" class="input"/>
                 </div>
 
                 <div class="Text">
                     Имя:
-                    <form:input type="text" path="name" value="${user.name}" class="input"/>
+                    <form:input type="text" path="name" value="${user.name}"
+                                required="required" minlength="2" maxlength="20" class="input"/>
 
                 </div>
 
                 <div class="Text">
                     Дата рождения:
-                    <form:input type="date" path="birthday" value="${user.birthday}" class="input"/>
+                    <form:input type="date" path="birthday" value="${user.birthday}"
+                                required="required" class="input"/>
                 </div>
 
                 <div class="Text">
@@ -93,7 +96,8 @@
 
                 <div class="Text">
                     Пароль:
-                    <form:input type="text" path="password" value="${user.password}" class="input"/>
+                    <form:input type="text" path="password" value="${user.password}"
+                                required="required" minlength="6" maxlength="50" class="input"/>
                 </div>
 
                 <input type="submit" class="button" value="Изменить"/>

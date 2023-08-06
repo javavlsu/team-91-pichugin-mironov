@@ -33,19 +33,19 @@
                         <div class="Text">
                             <p>Фамилия: </p>
                             <form:input type="text" path="lastName" placeholder=""
-                                        autofocus="true" required="" minlength="2" maxlength="20" cssClass="input"></form:input>
+                                        autofocus="true" required="required" minlength="2" maxlength="20" cssClass="input"></form:input>
                         </div>
 
                         <div class="Text">
                             <p>Имя: </p>
                             <form:input type="text" path="name" placeholder=""
-                                        required="" minlength="2" maxlength="20" cssClass="input"></form:input>
+                                        required="required" minlength="2" maxlength="20" cssClass="input"></form:input>
                         </div>
 
                         <div class="Text">
                             <p>Дата рождения: </p>
                             <form:input type="date" path="birthday"
-                                        cssClass="inputDate"></form:input>
+                                        required="required" cssClass="inputDate"></form:input>
                         </div>
 
                         <div class="Text">
@@ -59,18 +59,18 @@
                         <div class="Text">
                             <p>Логин: </p>
                             <form:input type="text" path="username"
-                                        required="" minlength="3" maxlength="20" cssClass="input"></form:input>
+                                        required="required" minlength="3" maxlength="20" cssClass="input"></form:input>
                         </div>
 
                         <div class="Text">
                             <p>Пароль: </p>
                             <form:input type="password" path="password"
-                                        required="" minlength="6" maxlength="50" cssClass="input"></form:input>
+                                        required="required" minlength="6" maxlength="50" cssClass="input"></form:input>
                         </div>
 
                         <div class="Text">
                             <p>Описание: </p>
-<%--                            <textarea name="userDescription" required minlength="2" maxlength="100" rows="1" class="inputBig"> </textarea>--%>
+                            <form:textarea path="userDescription" minlength="2" maxlength="100" rows="1" class="inputBig"/>
                         </div>
 
                         <div class="Text">
