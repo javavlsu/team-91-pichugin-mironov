@@ -65,7 +65,7 @@
                 <div class="post">
                     <div class="title">
                         <div>
-                            <b>${post.name}</b>
+                            <b>${post.title}</b>
                         </div>
                     </div>
                     <div class="dateTimePost">

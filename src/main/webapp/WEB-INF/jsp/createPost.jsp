@@ -37,7 +37,7 @@
             <div class="mainInf">
                 <div class="Text">
                     Название поста:
-                    <form:input type="text" path="name"
+                    <form:input type="text" path="title"
                                 required="" minlength="2" maxlength="40" cssClass="input"/>
                 </div>
 
@@ -66,7 +66,9 @@
                 <div style=" display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 100%; margin-top: 10%; ">
                     <a class="button1" href="posts">Назад</a>
                     <form method="GET" action="createPost" class="createPost" >
-                        <input type="hidden" name="username" value="${pageContext.request.userPrincipal.name}">
+                        <input type="hidden" name="name" value="${user.name}">
+                        <input type="hidden" name="lastName" value="${user.lastName}">
+                        <input type="hidden" name="id_user" value="${user.id_user}">
                         <input type="submit" class="button" value="Создать пост"/>
                     </form>
                 </div>

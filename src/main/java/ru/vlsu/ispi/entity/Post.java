@@ -15,7 +15,7 @@ public class Post implements GrantedAuthority {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private String title;
     private String description;
     private LocalDateTime startTime;
     private Boolean hide;
@@ -34,12 +34,8 @@ public class Post implements GrantedAuthority {
     public Post() {
 
     }
-    public Post(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
     @Override
     public String getAuthority() {
-        return getName();
+        return getTitle();
     }
 }
