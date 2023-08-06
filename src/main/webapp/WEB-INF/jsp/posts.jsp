@@ -1,3 +1,4 @@
+<%@ page import="ru.vlsu.ispi.entity.User" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
@@ -66,14 +67,13 @@
                         <div>
                             <b>${post.name}</b>
                         </div>
-
                     </div>
                     <div class="dateTimePost">
                         <a href="#">
                             <img src="https://clck.ru/33MEpQ" alt="фото пользователя" class="navImg">
                         </a>
                         <div class="ProfilePost">
-                            <a asp-controller="User" asp-action="AnotherUser" asp-route-id="@pst.UserID" style="color: white;">@pst.LastName @pst.Name</a>
+                            <a asp-controller="User" asp-action="AnotherUser" asp-route-id="@pst.UserID" style="color: white;">${post.user.lastName} @pst.LastName @pst.Name</a>
 
                             <div></div>
                         </div>
@@ -161,10 +161,11 @@
 
             </div>
             <div class="right">
-                <form class="createPost" action="" method="POST">
+                <form method="GET" action="createPost" class="createPost" >
+                    <input type="hidden" name="username" value="${pageContext.request.userPrincipal.name}">
                     <input type="submit" value="Создать пост" class="buttonRight"/>
                 </form>
-                <form class="createPost" action="" method="POST">
+                <form method="POST" action="" class="createPost"  >
                     <input type="submit" value="Найти друзей" class="findFriends"/>
                 </form>
             </div>

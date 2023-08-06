@@ -1,0 +1,215 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    background: #7CA8FF;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.header {
+    position: absolute;
+    width: 100%;
+    height: 10%;
+    left: 0px;
+    top: 0px;
+    min-width: 20%;
+    background: #6296E4;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    min-width: 20%;
+    min-height: 50%;
+}
+
+.header-intro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.3%;
+    margin-left: 15%;
+    margin-right: 15%;
+    min-width: none;
+}
+
+.logo {
+    text-decoration: none;
+    color: white;
+    font: 'Roboto';
+    font-size: 24pt;
+    min-width: 20%;
+    min-height: 100%;
+}
+
+.nav_link {
+    display: inline-block;
+    margin-left: 10%;
+    text-decoration: none;
+    color: white;
+    font: 'Roboto';
+    font-size: 24pt;
+    white-space: nowrap;
+    max-height: 100%;
+    min-width: auto;
+    min-height: 100%;
+}
+
+.main {
+    align-items: center;
+    margin: 13% auto 0 auto;
+}
+
+.content {
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin: 0 auto;
+    width: 40%;
+    background: #6296E4;
+    box-shadow: 0px 12px 15px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+.title {
+    color: #FFFFFF;
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+.mainInf {
+    color: #FFFFFF;
+    font-size: 21px;
+    display: flex;
+    flex-direction: column;
+    flex-flow: column wrap;
+    align-items: stretch;
+    justify-content: normal;
+    height: auto;
+    padding: 2% 4% 0% 4%;
+}
+
+.Text {
+    text-align: left;
+    margin: 0 0 25px 0;
+    color: white;
+}
+
+.input {
+    background: #5389DA;
+    border-radius: 10px;
+    border: 2px solid #4876bb;
+    font-size: 21px;
+    color: white;
+    width: 96%;
+    height: auto;
+    padding: 1% 2% 1% 2%;
+    word-break: break-word;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.inputDate {
+    background: #5389DA;
+    border-radius: 51px;
+    border: 2px solid #4876bb;
+    color: white;
+    padding-left: 2%;
+    padding-right: 2%;
+    width: 160px;
+    height: 30px;
+}
+
+/* Должно масштабироваться в зависимости сколько хобби */
+.inputMed {
+    background: #5389DA;
+    border-radius: 51px;
+    border: 2px solid #4876bb;
+    color: white;
+    width: 100%;
+    height: 30px;
+}
+
+.inputBig {
+    background: #5389DA;
+    border-radius: 18px;
+    border: 2px solid #4876bb;
+    font-size: 21px;
+    color: white;
+    padding: 0% 2% 0 2%;
+    resize: none;
+    width: 96%;
+    min-height: 76px;
+}
+
+.button {
+    margin: 0% 0% 0% auto;
+    padding: 1px 1px 1px 1px;
+    width: 210px;
+    border-radius: 51px;
+    border: 2px solid white;
+    background: white;
+    color: #6296E4;
+    font-size: 24px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button1 {
+    margin: 0% auto 0% 0%;
+    padding: 1px 1px 1px 1px;
+    width: 106px;
+    border-radius: 51px;
+    border: 2px solid white;
+    background: white;
+    color: #6296E4;
+    font-size: 24px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.contentF {
+    justify-content: space-between;
+    max-width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    color: #FFFFFF;
+    width: 100%;
+    margin-top: 2%;
+    margin-bottom: 5%;
+}
+
+.aboutF {
+    float: right;
+}
+
+.footerA {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.inputSel {
+    background: #5389DA;
+    border-radius: 10px;
+    border: 2px solid #4876bb;
+    font-size: 21px;
+    color: white;
+    height: auto;
+    padding: 1% 2% 1% 2%;
+    word-break: break-word;
+    white-space: normal;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+}

@@ -13,6 +13,7 @@ import java.util.Set;
 public class Post implements GrantedAuthority {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String description;
@@ -22,7 +23,6 @@ public class Post implements GrantedAuthority {
     @ManyToOne
     @JoinColumn(name="id_user", nullable = false)
     private User user;
-    //private Set<User> users;
 
     @Transient
     @ManyToMany(mappedBy = "post")
