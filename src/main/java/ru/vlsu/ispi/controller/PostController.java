@@ -25,7 +25,6 @@ public class PostController {
     @GetMapping("/posts")
     public String postsList(Model model) {
         model.addAttribute("allPosts", postService.allPosts());
-//        model.addAttribute("allUsers", userService.allUsers());
         return "posts";
     }
 

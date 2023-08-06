@@ -69,13 +69,11 @@
                         </div>
                     </div>
                     <div class="dateTimePost">
-                        <a href="#">
+                        <a href="/profile?username=${post.user.username}">
                             <img src="https://clck.ru/33MEpQ" alt="фото пользователя" class="navImg">
                         </a>
                         <div class="ProfilePost">
-                            <a asp-controller="User" asp-action="AnotherUser" asp-route-id="@pst.UserID" style="color: white;">${post.user.lastName} @pst.LastName @pst.Name</a>
-
-                            <div></div>
+                            <a href="/profile?username=${post.user.username}" asp-route-id="@pst.UserID" style="color: white;">${post.user.lastName} ${post.user.name}</a>
                         </div>
 
                     </div>
@@ -88,7 +86,7 @@
                         <b>Описание:</b>
                     </div>
                     <div class="textDescription">
-                        @pst.PostDescription
+                        ${post.description}
                     </div>
 
                     <div class="titleHobby">

@@ -31,19 +31,19 @@
     <div class="main">
         <form:form method="POST" action="createPost" modelAttribute="postForm" class="content">
             <div class="title">
-                Добавление поста:
+                Добавление поста
             </div>
 
             <div class="mainInf">
                 <div class="Text">
                     Название поста:
                     <form:input type="text" path="title"
-                                required="" minlength="2" maxlength="40" cssClass="input"/>
+                                required="required" minlength="2" maxlength="40" cssClass="input"/>
                 </div>
 
                 <div class="Text">
                     Содержание поста:
-<%--                    <form:textarea path="description" required="" minlength="2" maxlength="200" rows="1" class="inputBig"/>--%>
+                    <form:textarea path="description" required="required" minlength="2" maxlength="200" rows="1" class="inputBig"/>
                 </div>
 
                 <div class="Text">
@@ -69,6 +69,7 @@
                         <input type="hidden" name="name" value="${user.name}">
                         <input type="hidden" name="lastName" value="${user.lastName}">
                         <input type="hidden" name="id_user" value="${user.id_user}">
+                        <input type="hidden" name="username" value="${user.username}">
                         <input type="submit" class="button" value="Создать пост"/>
                     </form>
                 </div>
