@@ -8,6 +8,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import ru.vlsu.ispi.entity.Role;
 import ru.vlsu.ispi.entity.User;
+import ru.vlsu.ispi.repository.CommentRepository;
 import ru.vlsu.ispi.repository.HobbyRepository;
 import ru.vlsu.ispi.repository.PostRepository;
 import ru.vlsu.ispi.repository.RoleRepository;

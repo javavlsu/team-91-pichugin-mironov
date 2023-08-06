@@ -28,6 +28,9 @@ public class Post implements GrantedAuthority {
     @ManyToMany(mappedBy = "post")
     private Set<Hobby> hobby;
 
+    @OneToMany(mappedBy="post")
+    private Set<Comment> comment;
+
     public Post() {
 
     }
