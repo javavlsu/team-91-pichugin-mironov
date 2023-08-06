@@ -74,8 +74,10 @@
                         </a>
                         <div class="ProfilePost">
                             <a href="/profile?username=${post.user.username}" asp-route-id="@pst.UserID" style="color: white;">${post.user.lastName} ${post.user.name}</a>
+                            <div >
+                                    ${post.startTime}
+                            </div>
                         </div>
-
                     </div>
 
                     <div class="">

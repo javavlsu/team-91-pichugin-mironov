@@ -5,6 +5,7 @@ import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Set;
 
 @Data
@@ -17,7 +18,7 @@ public class Post implements GrantedAuthority {
     private Long id;
     private String title;
     private String description;
-    private LocalDateTime startTime;
+    private String startTime;
     private Boolean hide;
 
     @ManyToOne
@@ -33,6 +34,10 @@ public class Post implements GrantedAuthority {
 
     public Post() {
 
+    }
+    public void setStartTime(LocalDateTime time){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm");
+        this.startTime = time.format(formatter);
     }
     @Override
     public String getAuthority() {
