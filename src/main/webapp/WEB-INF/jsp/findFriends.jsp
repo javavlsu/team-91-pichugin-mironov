@@ -33,12 +33,18 @@
                 <form method="post" asp-action="FriendName">
                     <div class="contentID">
                         <div class="titleID">Введите фрагмент имени пользователя:</div>
-                        <form:form method="POST" >
-                            <input name="namesuser" type="text" class="inputID" />
+                        <form:form method="POST" action="findFriendsSubstring">
+                            <input type="text" name="substring" class="inputID"/>
                             <input type="submit" id="btnB" class="buttonID" value="Найти" />
                         </form:form>
                     </div>
                 </form>
+            </div>
+
+            <div class="title" style="display: flex; flex-direction: row; justify-content: space-around; align-items: center; width: 100%;">
+                <c:if test="${users.isEmpty()}">
+                    Ничего не найдено
+                </c:if>
             </div>
 
             <c:forEach items="${users}" var="user">

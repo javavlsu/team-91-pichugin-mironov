@@ -8,16 +8,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import ru.vlsu.ispi.entity.Role;
 import ru.vlsu.ispi.entity.User;
-import ru.vlsu.ispi.repository.CommentRepository;
-import ru.vlsu.ispi.repository.HobbyRepository;
-import ru.vlsu.ispi.repository.PostRepository;
-import ru.vlsu.ispi.repository.RoleRepository;
 import ru.vlsu.ispi.repository.UserRepository;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class UserService implements UserDetailsService {
@@ -44,6 +37,11 @@ public class UserService implements UserDetailsService {
 
     public List<User> allUsers() {
         return userRepository.findAll();
+    }
+    public List<User> allUsers(String substring) {
+        List<User> users = new ArrayList<>(userRepository.findAll());
+        users.removeIf(user -> !user.getName().contains(substring));
+        return users;
     }
 
     public boolean deleteUser(Long userId) {
