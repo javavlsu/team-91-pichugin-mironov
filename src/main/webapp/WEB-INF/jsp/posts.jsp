@@ -165,7 +165,7 @@
                     <input type="hidden" name="username" value="${pageContext.request.userPrincipal.name}">
                     <input type="submit" value="Создать пост" class="buttonRight"/>
                 </form>
-                <form method="POST" action="" class="createPost"  >
+                <form method="GET" action="findFriends" class="createPost"  >
                     <input type="submit" value="Найти друзей" class="findFriends"/>
                 </form>
             </div>

@@ -79,14 +79,13 @@
                                 ${user.birthday}
                             </div>
                         </div>
-
-                        <form method="GET" action="/editProfile">
-                            <input type="hidden" name="id_user" value="${user.id_user}"/>
-                            <button type="submit" class="buttonEdit">Редактировать</button>
-                        </form>
-
-                        <a class="buttonExit" href="/logout">Выход</a>
-
+                        <c:if test="${user.username == pageContext.request.userPrincipal.name}">
+                            <form method="GET" action="/editProfile">
+                                <input type="hidden" name="id_user" value="${user.id_user}"/>
+                                <button type="submit" class="buttonEdit">Редактировать</button>
+                            </form>
+                            <a class="buttonExit" href="/logout">Выход</a>
+                        </c:if>
                     </div>
                 </div>
 
