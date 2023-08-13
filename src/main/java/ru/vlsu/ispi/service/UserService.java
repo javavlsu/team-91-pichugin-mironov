@@ -11,6 +11,7 @@ import ru.vlsu.ispi.entity.User;
 import ru.vlsu.ispi.repository.UserRepository;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService implements UserDetailsService {
@@ -40,7 +41,7 @@ public class UserService implements UserDetailsService {
     }
     public List<User> allUsers(String substring) {
         List<User> users = new ArrayList<>(userRepository.findAll());
-        users.removeIf(user -> !user.getName().contains(substring));
+        users.removeIf(user -> !(user.getLastName().toLowerCase() + " " + user.getName().toLowerCase()).contains(substring));
         return users;
     }
 

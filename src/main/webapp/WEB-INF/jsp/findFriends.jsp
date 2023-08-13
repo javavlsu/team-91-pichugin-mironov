@@ -32,9 +32,9 @@
             <div style="display: flex; flex-direction: row; justify-content: space-around; align-items: center; width: 100%;">
                 <form method="post" asp-action="FriendName">
                     <div class="contentID">
-                        <div class="titleID">Введите фрагмент имени пользователя:</div>
+                        <div class="titleID">Введите фрагмент фамилии или имени пользователя:</div>
                         <form:form method="POST" action="findFriendsSubstring">
-                            <input type="text" name="substring" class="inputID"/>
+                            <input type="text" autofocus name="substring" class="inputID"/>
                             <input type="submit" id="btnB" class="buttonID" value="Найти" />
                         </form:form>
                     </div>
@@ -54,16 +54,16 @@
                             <img src="https://clck.ru/33MEpQ" alt="фото пользователя" class="profileImg">
                         </div>
                         <div class="Text">
-                            Имя:
+                            Фамилия:
                             <div class="input">
-                                ${user.name}
+                                    ${user.lastName}
                             </div>
                         </div>
 
                         <div class="Text">
-                            Фамилия:
+                            Имя:
                             <div class="input">
-                                ${user.lastName}
+                                    ${user.name}
                             </div>
                         </div>
 

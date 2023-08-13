@@ -22,7 +22,7 @@ public class FindFriendsController {
     @PostMapping("/findFriends")
     public String findFriendsSubstring(@RequestParam(required = true, defaultValue = "" ) String substring,
                                        Model model) {
-        substring = substring.trim();
+        substring = substring.trim().toLowerCase();
         model.addAttribute("users", userService.allUsers(substring));
         return "findFriends";
     }
