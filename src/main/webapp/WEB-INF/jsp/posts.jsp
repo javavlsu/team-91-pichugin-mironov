@@ -187,12 +187,14 @@
                                                     ${comment.startCommentTime}
                                             </div>
                                         </div>
-                                        <div class="deleteComment">
-                                            <form method="GET" action="" class="">
-                                                <input type="hidden" name="username" value="${pageContext.request.userPrincipal.name}" >
-                                                <input type="submit" value="Удалить" class="buttonComment"/>
-                                            </form>
-                                        </div>
+                                        <c:if test="${comment.user.username == pageContext.request.userPrincipal.name || pageContext.request.userPrincipal.name == post.user.username}">
+                                            <div class="deleteComment">
+                                                <form method="GET" action="" class="">
+                                                    <input type="hidden" name="username" value="${pageContext.request.userPrincipal.name}" >
+                                                    <input type="submit" value="Удалить" class="buttonComment"/>
+                                                </form>
+                                            </div>
+                                        </c:if>
                                     </div>
                                 </c:if>
                             </c:forEach>
