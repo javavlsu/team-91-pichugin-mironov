@@ -83,7 +83,7 @@
                 </div>
 
                 <div class="Text">
-                    Описпание:
+                    Описание:
                     <form:input type="text" path="userDescription" value="${user.userDescription}" class="input"/>
                 </div>
 

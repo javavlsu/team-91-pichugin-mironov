@@ -8,6 +8,7 @@ import ru.vlsu.ispi.repository.PostRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class PostService {
@@ -22,6 +23,18 @@ public class PostService {
         post.setHide(false);
         post.setStartTime(LocalDateTime.now());
         post.setUser(user);
+        postRepository.save(post);
+
+        return true;
+    }
+
+    public boolean updatePost(Post post, User user) {
+        /*User userFromDB = postRepository.findByUsername(user.getUsername());
+
+        user.setRoles(userFromDB.getRoles());
+        if (!Objects.equals(user.getPassword(), userFromDB.getPassword())) {
+            post.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        }*/
         postRepository.save(post);
 
         return true;
