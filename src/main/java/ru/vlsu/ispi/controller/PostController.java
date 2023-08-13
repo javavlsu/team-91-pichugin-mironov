@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.vlsu.ispi.entity.Post;
 import ru.vlsu.ispi.entity.User;
+import ru.vlsu.ispi.service.CommentService;
 import ru.vlsu.ispi.service.PostService;
 import ru.vlsu.ispi.service.UserService;
 
@@ -21,10 +22,13 @@ public class PostController {
     private PostService postService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private CommentService commentService;
 
     @GetMapping("/posts")
     public String postsList(Model model) {
         model.addAttribute("allPosts", postService.allPosts());
+        model.addAttribute("allComments", commentService.allComments());
         return "posts";
     }
 

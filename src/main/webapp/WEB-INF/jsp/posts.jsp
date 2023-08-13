@@ -164,31 +164,32 @@
                                 <input type="submit" value="Отправить" class="buttonComment">
                             </form>
                         </div>
-
-                        <div class="comment">
-                            <div class="userComment">
-                                <a href="/profile?username=${post.user.username}">
-                                    <img src="https://clck.ru/33MEpQ" alt="фото пользователя" class="navImg">
-                                </a>
-                            </div>
-                            <div class="textComment">
-                                <div style="font-size: 16.5px; line-height: 22px; font-weight: 570;">
-                                    Миронов Илья
+                        <c:forEach items="${allComments}" var="comment">
+                            <div class="comment">
+                                <div class="userComment">
+                                    <a href="/profile?username=#">
+                                        <img src="https://clck.ru/33MEpQ" alt="фото пользователя" class="navImg">
+                                    </a>
                                 </div>
-                                <div style="font-size: 14.5px; word-wrap: break-word;">
-                                    ВАУ, вот это коммент!
+                                <div class="textComment">
+                                    <div style="font-size: 16.5px; line-height: 22px; font-weight: 570;">
+                                        ${comment.user.name} ${comment.user.lastName}
+                                    </div>
+                                    <div style="font-size: 14.5px; word-wrap: break-word;">
+                                        ${comment.name}
+                                    </div>
+                                    <div style="font-size: 12.5px; line-height: 20px">
+                                        ${comment.startCommentTime}
+                                    </div>
                                 </div>
-                                <div style="font-size: 12.5px; line-height: 20px">
-                                    Время отправки
+                                <div class="deleteComment">
+                                    <form method="GET" action="" class="">
+                                        <input type="hidden" name="username" value="${pageContext.request.userPrincipal.name}" >
+                                        <input type="submit" value="Удалить" class="buttonComment"/>
+                                    </form>
                                 </div>
                             </div>
-                            <div class="timeComment">
-                                <form method="GET" action="" class="">
-                                    <input type="hidden" name="username" value="${pageContext.request.userPrincipal.name}" >
-                                    <input type="submit" value="Удалить" class="buttonComment"/>
-                                </form>
-                            </div>
-                        </div>
+                        </c:forEach>
                     </div>
 
                 </div>
