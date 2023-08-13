@@ -159,37 +159,43 @@
 
                     <div class="commentSection">
                         <div class="newComment">
-                            <form method="POST" action=""  class="formComment">
-                                <input type="text" name="name" placeholder="Написать комментарий.." class="inputNewComment">
+                            <form method="POST" action="posts"  class="formComment">
+                                <input type="hidden" name="username" value="${pageContext.request.userPrincipal.name}">
+                                <input type="hidden" name="id" value="${post.id}">
+                                <input type="text" name="commentName"
+                                            minlength="2" maxlength="300" placeholder="Написать комментарий.." class="inputNewComment"/>
                                 <input type="submit" value="Отправить" class="buttonComment">
                             </form>
                         </div>
-                        <c:forEach items="${allComments}" var="comment">
-                            <div class="comment">
-                                <div class="userComment">
-                                    <a href="/profile?username=#">
-                                        <img src="https://clck.ru/33MEpQ" alt="фото пользователя" class="navImg">
-                                    </a>
-                                </div>
-                                <div class="textComment">
-                                    <div style="font-size: 16.5px; line-height: 22px; font-weight: 570;">
-                                        ${comment.user.name} ${comment.user.lastName}
+
+                            <c:forEach items="${allComments}" var="comment">
+                                <c:if test="${post.id == comment.post.id}">
+                                    <div class="comment">
+                                        <div class="userComment">
+                                            <a href="/profile?username=#">
+                                                <img src="https://clck.ru/33MEpQ" alt="фото пользователя" class="navImg">
+                                            </a>
+                                        </div>
+                                        <div class="textComment">
+                                            <div style="font-size: 16.5px; line-height: 22px; font-weight: 570;">
+                                                    ${comment.user.name} ${comment.user.lastName}
+                                            </div>
+                                            <div style="font-size: 14.5px; word-wrap: break-word;">
+                                                    ${comment.commentName}
+                                            </div>
+                                            <div style="font-size: 12.5px; line-height: 20px">
+                                                    ${comment.startCommentTime}
+                                            </div>
+                                        </div>
+                                        <div class="deleteComment">
+                                            <form method="GET" action="" class="">
+                                                <input type="hidden" name="username" value="${pageContext.request.userPrincipal.name}" >
+                                                <input type="submit" value="Удалить" class="buttonComment"/>
+                                            </form>
+                                        </div>
                                     </div>
-                                    <div style="font-size: 14.5px; word-wrap: break-word;">
-                                        ${comment.name}
-                                    </div>
-                                    <div style="font-size: 12.5px; line-height: 20px">
-                                        ${comment.startCommentTime}
-                                    </div>
-                                </div>
-                                <div class="deleteComment">
-                                    <form method="GET" action="" class="">
-                                        <input type="hidden" name="username" value="${pageContext.request.userPrincipal.name}" >
-                                        <input type="submit" value="Удалить" class="buttonComment"/>
-                                    </form>
-                                </div>
-                            </div>
-                        </c:forEach>
+                                </c:if>
+                            </c:forEach>
                     </div>
 
                 </div>

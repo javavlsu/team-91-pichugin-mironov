@@ -4,7 +4,8 @@ import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Data
 @Entity
@@ -12,8 +13,9 @@ import java.util.Set;
 public class Comment implements GrantedAuthority {
 
     @Id
-    private Long id;
-    private String name; // Название (Содержание) комментария
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id_comment;
+    private String CommentName; // Название (Содержание) комментария
     private String startCommentTime;
 
     @ManyToOne
@@ -28,11 +30,16 @@ public class Comment implements GrantedAuthority {
 
     }
 
-    public Comment(Long id) {
-        this.id = id;
+    public Comment(Long id_comment) {
+        this.id_comment = id_comment;
+    }
+
+    public void setStartCommentTime(LocalDateTime time){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm");
+        this.startCommentTime = time.format(formatter);
     }
     @Override
     public String getAuthority() {
-        return getName();
+        return getCommentName();
     }
 }
