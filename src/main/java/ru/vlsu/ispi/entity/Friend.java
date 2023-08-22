@@ -4,33 +4,35 @@ import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Data
 @Entity
 @Table(name = "t_friend")
 public class Friend implements GrantedAuthority {
-
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name; // Название (Содержание) комментария
+    private Long idU;
+    private String username;
+    private Long idF;
+    private boolean confirm;
 
     @ManyToOne
-    @JoinColumn(name="id_user", nullable = false)
     private User user;
 
-    @OneToMany(mappedBy="user")
-    private Set<User> users;
 
     public Friend() {
 
     }
 
-    public Friend(Long id) {
-        this.id = id;
+    public Friend(Long idU, Long idF, String username) {
+        this.idU = idU;
+        this.idF = idF;
+        this.username = username;
     }
+
     @Override
     public String getAuthority() {
-        return getName();
+        return null;
     }
 }

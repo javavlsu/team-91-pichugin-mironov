@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.vlsu.ispi.entity.User;
+import ru.vlsu.ispi.service.FriendService;
 import ru.vlsu.ispi.service.UserService;
 
 import javax.validation.Valid;
@@ -17,10 +18,21 @@ import javax.validation.Valid;
 public class UserController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private FriendService friendService;
 
     @GetMapping("/profile")
-    public String profile(@RequestParam(required = true, defaultValue = "" ) String username, Model model) {
+    public String profile(@RequestParam(required = true, defaultValue = "" ) String username,
+                          @RequestParam(required = false, defaultValue = "" ) String user,
+                          Model model) {
         model.addAttribute("user", userService.loadUserByUsername(username));
+        model.addAttribute("listFriends", friendService.userFriends(username));
+        if (!user.equals(null)){
+            if (friendService.isExist(username, user)){
+                model.addAttribute("alreadyFriends", "yes");
+            }
+        }
+
         return "profile";
     }
 

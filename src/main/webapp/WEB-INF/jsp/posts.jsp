@@ -69,11 +69,11 @@
                         </div>
                     </div>
                     <div class="dateTimePost">
-                        <a href="/profile?username=${post.user.username}">
+                        <a href="/profile?username=${post.user.username}&user=${pageContext.request.userPrincipal.name}">
                             <img src="https://clck.ru/33MEpQ" alt="фото пользователя" class="navImg">
                         </a>
                         <div class="ProfilePost">
-                            <a href="/profile?username=${post.user.username}" asp-route-id="@pst.UserID" style="color: white;">${post.user.lastName} ${post.user.name}</a>
+                            <a href="/profile?username=${post.user.username}&user=${pageContext.request.userPrincipal.name}" style="color: white;">${post.user.lastName} ${post.user.name}</a>
                             <div >
                                     ${post.startTime}
                             </div>
@@ -178,7 +178,7 @@
                                         </div>
                                         <div class="textComment">
                                             <div style="font-size: 16.5px; line-height: 22px; font-weight: 570;">
-                                                    ${comment.user.name} ${comment.user.lastName}
+                                                    ${comment.user.lastName} ${comment.user.name}
                                             </div>
                                             <div style="font-size: 14.5px; word-wrap: break-word;">
                                                     ${comment.commentName}
@@ -202,7 +202,6 @@
 
                 </div>
                 </c:forEach>
-
             </div>
             <div class="right">
                 <form method="GET" action="createPost" class="createPost" >

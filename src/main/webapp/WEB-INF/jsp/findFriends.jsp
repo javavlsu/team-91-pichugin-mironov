@@ -95,7 +95,6 @@
                     <div class="bMenu">
                         <c:if test="${user.username != pageContext.request.userPrincipal.name}">
                             <a class="buttonMenu" href="/profile?username=${user.username}">Подробнее</a>
-                            <a class="buttonMenu" onclick="addFriend()" asp-controller="User" asp-action="NewFriend" asp-route-id="@r.UserID">Добавить в друзья</a>
                         </c:if>
                     </div>
                 </div>

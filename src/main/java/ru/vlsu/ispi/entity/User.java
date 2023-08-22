@@ -31,13 +31,8 @@ public class User implements UserDetails {
     private Set<Role> roles;
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Hobby> hobby;
-
-    @ManyToOne
-    private User user;
-
-    /* Должно быть, но почему-то работает без этого
-    @OneToMany(mappedBy="friend")
-    private Set<Friend> friend;*/
+    @OneToMany(mappedBy="user")
+    private Set<Friend> friend;
 
     @OneToMany(mappedBy="user")
     private Set<Post> post;

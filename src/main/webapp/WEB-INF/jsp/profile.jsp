@@ -79,6 +79,7 @@
                                 ${user.birthday}
                             </div>
                         </div>
+<%--                        Проверка на то, чтобы только пользователь своей страницы мог редактировать профиль--%>
                         <c:if test="${user.username == pageContext.request.userPrincipal.name}">
                             <form method="GET" action="/editProfile">
                                 <input type="hidden" name="id_user" value="${user.id_user}"/>
@@ -86,28 +87,66 @@
                             </form>
                             <a class="buttonExit" href="/logout">Выход</a>
                         </c:if>
+                        <c:if test="${alreadyFriends != 'yes'}">
+                            <c:if test="${user.username != pageContext.request.userPrincipal.name}">
+                                <form method="POST" action="/addFriend">
+                                    <input type="hidden" name="friendname" value="${user.username}">
+                                    <input type="hidden" name="username" value="${pageContext.request.userPrincipal.name}">
+                                    <button type="submit" class="buttonEdit">Добавить в друзья</button>
+                                </form>
+                            </c:if>
+                        </c:if>
                     </div>
                 </div>
+                <div class="rightInf">
+                    <div class="content1">
+                        <div class="mainInf">
 
-                <div class="content1">
-                    <div class="mainInf">
+                            <div class="Text">
+                                Обо мне:
+                                <div class="input1">
+                                    ${user.userDescription}
+                                </div>
+                            </div>
 
-                        <div class="Text">
-                            Обо мне:
-                            <div class="input1">
-                                ${user.userDescription}
+                            <div class="Text">
+                                Ссылка на мессенджер:
+                                <div class="input1">
+                                    <a href="${user.linkMes}" style="color:white">${user.linkMes}</a>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="Text">
-                            Ссылка на мессенджер:
-                            <div class="input1">
-                                <a href="${user.linkMes}" style="color:white">${user.linkMes}</a>
-                            </div>
-                        </div>
-
                     </div>
+                    <div class="friendships">
+                        <c:forEach items="${listFriends}" var="friend">
+                            <div class="content2">
+                                <div class="friendInf">
+                                    <div>
+                                        <img src="https://clck.ru/33MEpQ" alt="фото пользователя" class="friendImg">
+                                    </div>
+                                    <div class="friendInf1">
+                                        <div class="Text">
+                                            <a href="/profile?username=${friend.username}&user=${pageContext.request.userPrincipal.name}" class="friendHref">${friend.lastName} ${friend.name}</a>
+                                            <br>Хочет добавить вас в дрзуья
+                                        </div>
+                                        <div style="display: flex">
+                                            <div>
+                                                <button>Добавить</button>
+                                            </div>
+                                            <div>
+                                                <button>Отказаться</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </div>
+
                 </div>
+
+
+
             </div>
     </div>
 
