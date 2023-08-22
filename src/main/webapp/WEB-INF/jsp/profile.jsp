@@ -117,31 +117,34 @@
                             </div>
                         </div>
                     </div>
-                    <div class="friendships">
-                        <c:forEach items="${listFriends}" var="friend">
-                            <div class="content2">
-                                <div class="friendInf">
-                                    <div>
-                                        <img src="https://clck.ru/33MEpQ" alt="фото пользователя" class="friendImg">
-                                    </div>
-                                    <div class="friendInf1">
-                                        <div class="Text">
-                                            <a href="/profile?username=${friend.username}&user=${pageContext.request.userPrincipal.name}" class="friendHref">${friend.lastName} ${friend.name}</a>
-                                            <br>Хочет добавить вас в дрзуья
+
+                    <c:if test="${user.username == pageContext.request.userPrincipal.name}">
+                        <div class="friendships">
+                            <c:forEach items="${listFriends}" var="friend">
+                                <div class="content2">
+                                    <div class="friendInf">
+                                        <div>
+                                            <img src="https://clck.ru/33MEpQ" alt="фото пользователя" class="friendImg">
                                         </div>
-                                        <div style="display: flex">
-                                            <div>
-                                                <button>Добавить</button>
+                                        <div class="friendInf1">
+                                            <div class="Text">
+                                                <a href="/profile?username=${friend.username}&user=${pageContext.request.userPrincipal.name}" class="friendHref">${friend.lastName} ${friend.name}</a>
+                                                <br>Хочет добавить вас в дрзуья
                                             </div>
-                                            <div>
-                                                <button>Отказаться</button>
+                                            <div style="display: flex">
+                                                <div>
+                                                    <button>Добавить</button>
+                                                </div>
+                                                <div>
+                                                    <button>Отказаться</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </c:forEach>
-                    </div>
+                            </c:forEach>
+                        </div>
+                    </c:if>
 
                 </div>
 
