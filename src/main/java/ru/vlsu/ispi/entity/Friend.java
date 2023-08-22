@@ -14,6 +14,7 @@ public class Friend implements GrantedAuthority {
     private Long id;
     private Long idU;
     private String username;
+    private String friendUsername;
     private Long idF;
     private boolean confirm;
 
@@ -25,10 +26,11 @@ public class Friend implements GrantedAuthority {
 
     }
 
-    public Friend(Long idU, Long idF, String username) {
+    public Friend(Long idU, Long idF, String username, String friendUsername) {
         this.idU = idU;
         this.idF = idF;
         this.username = username;
+        this.friendUsername = friendUsername;
     }
 
     @Override

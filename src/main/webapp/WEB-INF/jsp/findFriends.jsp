@@ -18,7 +18,7 @@
                 <div class="logo">Logo</div>
                 <nav class="nav">
                     <a class="nav_link" href="/posts">Посты</a>
-                    <a class="nav_link" href="#">Друзья</a>
+                    <a class="nav_link" href="/friends?username=${pageContext.request.userPrincipal.name}">Друзья</a>
                     <a class="nav_link" href="/profile?username=${pageContext.request.userPrincipal.name}">
                         ${pageContext.request.userPrincipal.name}
                     </a>
@@ -48,56 +48,56 @@
             </div>
 
             <c:forEach items="${users}" var="user">
-                <div class="friend">
-                    <div class="mainInf">
-                        <div class="styleImg">
-                            <img src="https://clck.ru/33MEpQ" alt="фото пользователя" class="profileImg">
-                        </div>
-                        <div class="Text">
-                            Фамилия:
-                            <div class="input">
-                                    ${user.lastName}
+                <c:if test="${user.username != pageContext.request.userPrincipal.name}">
+                    <div class="friend">
+                        <div class="mainInf">
+                            <div class="styleImg">
+                                <img src="https://clck.ru/33MEpQ" alt="фото пользователя" class="profileImg">
                             </div>
-                        </div>
-
-                        <div class="Text">
-                            Имя:
-                            <div class="input">
-                                    ${user.name}
+                            <div class="Text">
+                                Фамилия:
+                                <div class="input">
+                                        ${user.lastName}
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="Text">
-                            Пол:
-                            <div class="input">
-                                <c:choose>
-                                    <c:when test="${user.pol==true}">
-                                        Мужской
-                                        <br />
-                                    </c:when>
-                                    <c:when test="${user.pol==false}">
-                                        Женский
-                                        <br />
-                                    </c:when>
-                                </c:choose>
+                            <div class="Text">
+                                Имя:
+                                <div class="input">
+                                        ${user.name}
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="Text">
-                            День рождения:
-                            <div class="input">
-                                ${user.birthday}
+                            <div class="Text">
+                                Пол:
+                                <div class="input">
+                                    <c:choose>
+                                        <c:when test="${user.pol==true}">
+                                            Мужской
+                                            <br />
+                                        </c:when>
+                                        <c:when test="${user.pol==false}">
+                                            Женский
+                                            <br />
+                                        </c:when>
+                                    </c:choose>
+                                </div>
                             </div>
-                        </div>
 
-                    </div>
-                    <hr style="width: 90%; visibility: hidden;">
-                    <div class="bMenu">
-                        <c:if test="${user.username != pageContext.request.userPrincipal.name}">
+                            <div class="Text">
+                                День рождения:
+                                <div class="input">
+                                        ${user.birthday}
+                                </div>
+                            </div>
+
+                        </div>
+                        <hr style="width: 90%; visibility: hidden;">
+                        <div class="bMenu">
                             <a class="buttonMenu" href="/profile?username=${user.username}&user=${pageContext.request.userPrincipal.name}">Подробнее</a>
-                        </c:if>
+                        </div>
                     </div>
-                </div>
+                </c:if>
             </c:forEach>
 
         </div>

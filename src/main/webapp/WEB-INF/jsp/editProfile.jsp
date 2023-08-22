@@ -19,7 +19,7 @@
             <div class="logo">Logo</div>
             <nav class="nav">
                 <a class="nav_link" href="/posts">Посты</a>
-                <a class="nav_link" href="#">Друзья</a>
+                <a class="nav_link" href="/friends?username=${pageContext.request.userPrincipal.name}">Друзья</a>
                 <div class="profileHref">
                     <a class="nav_link_p" href="/profile?username=${pageContext.request.userPrincipal.name}">
                         ${pageContext.request.userPrincipal.name}
