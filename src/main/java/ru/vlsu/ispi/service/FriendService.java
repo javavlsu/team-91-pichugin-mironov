@@ -91,4 +91,9 @@ public class FriendService {
         friendship.setConfirm(true);
         friendRepository.save(friendship);
     }
+
+    public void deleteFriend(Long idF, Long idU) {
+        Friend friendship = friendRepository.findFriendByIdFAndIdU(idF, idU);
+        friendRepository.delete(friendship);
+    }
 }

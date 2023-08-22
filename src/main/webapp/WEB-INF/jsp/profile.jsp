@@ -141,10 +141,13 @@
                                                         <input type="hidden" name="idU" value="${friend.id_user}">
                                                         <button type="submit" class="buttonFriendships">Добавить</button>
                                                     </form>
-
                                                 </div>
                                                 <div>
-                                                    <button class="buttonFriendships">Отказаться</button>
+                                                    <form method="POST" action="/deleteFriend">
+                                                        <input type="hidden" name="idF" value="${user.id_user}">
+                                                        <input type="hidden" name="idU" value="${friend.id_user}">
+                                                        <button type="submit" class="buttonFriendships">Отказаться</button>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>

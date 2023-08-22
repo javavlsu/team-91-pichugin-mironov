@@ -32,6 +32,14 @@ public class FriendController {
         return "redirect:/posts";
     }
 
+    @PostMapping("/deleteFriend")
+    public String deleteFriend(@RequestParam(required = true, defaultValue = "" ) Long idF,
+                               @RequestParam(required = true, defaultValue = "" ) Long idU,
+                               Model model) {
+        friendService.deleteFriend(idF, idU);
+        return "redirect:/posts";
+    }
+
     @GetMapping("/friends")
     public String friendsView(@RequestParam(required = true, defaultValue = "" ) String username,
                               Model model) {
