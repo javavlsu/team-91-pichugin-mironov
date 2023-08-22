@@ -94,7 +94,7 @@
                     <hr style="width: 90%; visibility: hidden;">
                     <div class="bMenu">
                         <c:if test="${user.username != pageContext.request.userPrincipal.name}">
-                            <a class="buttonMenu" href="/profile?username=${user.username}">Подробнее</a>
+                            <a class="buttonMenu" href="/profile?username=${user.username}&user=${pageContext.request.userPrincipal.name}">Подробнее</a>
                         </c:if>
                     </div>
                 </div>

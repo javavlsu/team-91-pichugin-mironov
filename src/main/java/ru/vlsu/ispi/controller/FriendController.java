@@ -3,6 +3,7 @@ package ru.vlsu.ispi.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.vlsu.ispi.service.FriendService;
@@ -29,5 +30,12 @@ public class FriendController {
                             Model model) {
         friendService.addFriend(idF, idU);
         return "redirect:/posts";
+    }
+
+    @GetMapping("/friends")
+    public String friendsView(@RequestParam(required = true, defaultValue = "" ) String username,
+                              Model model) {
+        model.addAttribute("users", friendService.listFriends(username));
+        return "findFriends";
     }
 }

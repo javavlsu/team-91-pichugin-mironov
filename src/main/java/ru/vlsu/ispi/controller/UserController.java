@@ -29,7 +29,7 @@ public class UserController {
         model.addAttribute("listFriends", friendService.userFriends(username));
         if (!user.equals(null)){
             if (friendService.isExist(username, user)){
-                model.addAttribute("alreadyFriends", "yes");
+                model.addAttribute("alreadyFriends", true);
             }
         }
 

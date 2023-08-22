@@ -17,7 +17,7 @@
             <div class="logo">Logo</div>
             <nav class="nav">
                 <a class="nav_link" href="/posts">Посты</a>
-                <a class="nav_link" href="#">Друзья</a>
+                <a class="nav_link" href="/friends?username=${pageContext.request.userPrincipal.name}">Друзья</a>
                 <div class="profileHref">
                     <a class="nav_link_p" href="/profile?username=${pageContext.request.userPrincipal.name}">
                         ${pageContext.request.userPrincipal.name}
@@ -87,7 +87,7 @@
                             </form>
                             <a class="buttonExit" href="/logout">Выход</a>
                         </c:if>
-                        <c:if test="${alreadyFriends != 'yes'}">
+                        <c:if test="${!alreadyFriends}">
                             <c:if test="${user.username != pageContext.request.userPrincipal.name}">
                                 <form method="POST" action="/addFriendship">
                                     <input type="hidden" name="friendname" value="${user.username}">
@@ -96,6 +96,7 @@
                                 </form>
                             </c:if>
                         </c:if>
+
                     </div>
                 </div>
                 <div class="rightInf">

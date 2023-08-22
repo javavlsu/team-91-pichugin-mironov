@@ -29,6 +29,18 @@ public class FriendService {
         return userFriends;
     }
 
+    public List<User> listFriends(String username) {
+        User user = userRepository.findByUsername(username);
+        List<Friend> userFriendships = friendRepository.findFriendByIdF(user.getId_user());
+        List<User> userFriends = new ArrayList<>();
+        for (Friend friend : userFriendships) {
+            if (friend.isConfirm()){
+                userFriends.add(userRepository.findByUsername(friend.getUsername()));
+            }
+        }
+        return userFriends;
+    }
+
     public boolean addFriendship(String friendname, String username) {
         User newFriend = userRepository.findByUsername(friendname); // подгрузка того, кого мы хотим добавить в друзья
         User user = userRepository.findByUsername(username);
@@ -38,14 +50,13 @@ public class FriendService {
     }
 
     public boolean isExist(String usernameF, String username ) {
-        User userF = userRepository.findByUsername(usernameF);
-        User user = userRepository.findByUsername(username);
+        User user = userRepository.findByUsername(usernameF);
+        User userF = userRepository.findByUsername(username);
         try{
             Friend friendship = friendRepository.findFriendByIdFAndIdU(userF.getId_user(), user.getId_user());
-            if (friendship.getIdU() == user.getId_user() && friendship.getIdF() == userF.getId_user() && !friendship.isConfirm()){
+            if (friendship.isConfirm()){
                 return true;
             }
-            return true;
         } catch (NullPointerException e){
             System.err.println("Нет дружбы с пользователем");
         }
