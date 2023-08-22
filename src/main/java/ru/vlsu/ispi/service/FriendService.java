@@ -22,13 +22,14 @@ public class FriendService {
         List<Friend> userFriendships = friendRepository.findFriendByIdF(user.getId_user());
         List<User> userFriends = new ArrayList<>();
         for (Friend friend : userFriendships) {
-            userFriends.add(userRepository.findByUsername(friend.getUsername()));
+            if (!friend.isConfirm()){
+                userFriends.add(userRepository.findByUsername(friend.getUsername()));
+            }
         }
         return userFriends;
     }
 
-
-    public boolean addFriend(String friendname, String username) {
+    public boolean addFriendship(String friendname, String username) {
         User newFriend = userRepository.findByUsername(friendname); // подгрузка того, кого мы хотим добавить в друзья
         User user = userRepository.findByUsername(username);
         Friend friendship = new Friend(user.getId_user(), newFriend.getId_user(), username);
@@ -51,4 +52,9 @@ public class FriendService {
         return false;
     }
 
+    public void addFriend(Long idF, Long idU) {
+        Friend friendship = friendRepository.findFriendByIdFAndIdU(idF, idU);
+        friendship.setConfirm(true);
+        friendRepository.save(friendship);
+    }
 }

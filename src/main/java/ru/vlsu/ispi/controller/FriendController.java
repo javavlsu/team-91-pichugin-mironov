@@ -15,11 +15,19 @@ public class FriendController {
     @Autowired
     UserService userService;
 
-    @PostMapping("/addFriend")
+    @PostMapping("/addFriendship")
     public String addFriend(@RequestParam(required = true, defaultValue = "" ) String friendname,
                             @RequestParam(required = true, defaultValue = "" ) String username,
                             Model model){
-        friendService.addFriend(friendname, username);
+        friendService.addFriendship(friendname, username);
+        return "redirect:/posts";
+    }
+
+    @PostMapping("/addFriend")
+    public String addFriend(@RequestParam(required = true, defaultValue = "" ) Long idF,
+                            @RequestParam(required = true, defaultValue = "" ) Long idU,
+                            Model model) {
+        friendService.addFriend(idF, idU);
         return "redirect:/posts";
     }
 }

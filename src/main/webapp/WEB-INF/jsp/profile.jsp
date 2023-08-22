@@ -89,7 +89,7 @@
                         </c:if>
                         <c:if test="${alreadyFriends != 'yes'}">
                             <c:if test="${user.username != pageContext.request.userPrincipal.name}">
-                                <form method="POST" action="/addFriend">
+                                <form method="POST" action="/addFriendship">
                                     <input type="hidden" name="friendname" value="${user.username}">
                                     <input type="hidden" name="username" value="${pageContext.request.userPrincipal.name}">
                                     <button type="submit" class="buttonEdit">Добавить в друзья</button>
@@ -135,7 +135,12 @@
                                             </div>
                                             <div style="display: flex">
                                                 <div>
-                                                    <button class="buttonFriendships">Добавить</button>
+                                                    <form method="POST" action="/addFriend">
+                                                        <input type="hidden" name="idF" value="${user.id_user}">
+                                                        <input type="hidden" name="idU" value="${friend.id_user}">
+                                                        <button type="submit" class="buttonFriendships">Добавить</button>
+                                                    </form>
+
                                                 </div>
                                                 <div>
                                                     <button class="buttonFriendships">Отказаться</button>
