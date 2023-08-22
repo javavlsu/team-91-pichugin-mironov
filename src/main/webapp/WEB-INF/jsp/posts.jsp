@@ -73,7 +73,7 @@
                             <img src="https://clck.ru/33MEpQ" alt="фото пользователя" class="navImg">
                         </a>
                         <div class="ProfilePost">
-                            <a href="/profile?username=${post.user.username}&user=${pageContext.request.userPrincipal.name}" style="color: white;">${post.user.lastName} ${post.user.name}</a>
+                            <a href="/profile?username=${post.user.username}&user=${pageContext.request.userPrincipal.name}" style="text-decoration: none; color: white; font-size: 16.5px; line-height: 22px; font-weight: 570;">${post.user.lastName} ${post.user.name}</a>
                             <div >
                                     ${post.startTime}
                             </div>
@@ -95,42 +95,7 @@
                         Хобби:
                     </div>
                     <div class="hobby">
-<%--                        @switch (pst.HobbyID)--%>
-<%--                        {--%>
-<%--                        case 1:--%>
-<%--                        <div class="hobbyDis">Интеллектуальные игры</div>--%>
-<%--                        break;--%>
-<%--                        case 35:--%>
-<%--                        <div class="hobbyDis">Спорт</div>--%>
-<%--                        break;--%>
-<%--                        case 36:--%>
-<%--                        <div class="hobbyDis">Музыка</div>--%>
-<%--                        break;--%>
-<%--                        case 37:--%>
-<%--                        <div class="hobbyDis">Кино</div>--%>
-<%--                        break;--%>
-<%--                        case 38:--%>
-<%--                        <div class="hobbyDis">Творчество</div>--%>
-<%--                        break;--%>
-<%--                        case 39:--%>
-<%--                        <div class="hobbyDis">Путешествия</div>--%>
-<%--                        break;--%>
-<%--                        case 40:--%>
-<%--                        <div class="hobbyDis">Коллекционирование</div>--%>
-<%--                        break;--%>
-<%--                        case 41:--%>
-<%--                        <div class="hobbyDis">Компьютерные игры</div>--%>
-<%--                        break;--%>
-<%--                        case 42:--%>
-<%--                        <div class="hobbyDis">Мода</div>--%>
-<%--                        break;--%>
-<%--                        case 43:--%>
-<%--                        <div class="hobbyDis">Разное</div>--%>
-<%--                        break;--%>
-<%--                        case 100:--%>
-<%--                        <div class="hobbyDis">-</div>--%>
-<%--                        break;--%>
-<%--                        }--%>
+
                     </div>
 
                     <hr style="width: 90%; visibility: hidden;">
@@ -172,13 +137,13 @@
                                 <c:if test="${post.id == comment.post.id}">
                                     <div class="comment">
                                         <div class="userComment">
-                                            <a href="/profile?username=#">
+                                            <a href="/profile?username=${comment.user.username}&user=${pageContext.request.userPrincipal.name}">
                                                 <img src="https://clck.ru/33MEpQ" alt="фото пользователя" class="navImg">
                                             </a>
                                         </div>
                                         <div class="textComment">
                                             <div style="font-size: 16.5px; line-height: 22px; font-weight: 570;">
-                                                    ${comment.user.lastName} ${comment.user.name}
+                                                    <a href="/profile?username=${comment.user.username}&user=${pageContext.request.userPrincipal.name}" style="text-decoration: none; color: white;">${comment.user.lastName} ${comment.user.name}</a>
                                             </div>
                                             <div style="font-size: 14.5px; word-wrap: break-word;">
                                                     ${comment.commentName}

@@ -124,7 +124,9 @@
                                 <div class="content2">
                                     <div class="friendInf">
                                         <div>
-                                            <img src="https://clck.ru/33MEpQ" alt="фото пользователя" class="friendImg">
+                                            <a href="/profile?username=${friend.username}&user=${pageContext.request.userPrincipal.name}">
+                                                <img src="https://clck.ru/33MEpQ" alt="фото пользователя" class="friendImg">
+                                            </a>
                                         </div>
                                         <div class="friendInf1">
                                             <div class="Text">
@@ -133,10 +135,10 @@
                                             </div>
                                             <div style="display: flex">
                                                 <div>
-                                                    <button>Добавить</button>
+                                                    <button class="buttonFriendships">Добавить</button>
                                                 </div>
                                                 <div>
-                                                    <button>Отказаться</button>
+                                                    <button class="buttonFriendships">Отказаться</button>
                                                 </div>
                                             </div>
                                         </div>

@@ -434,7 +434,7 @@ footer {
     font-size: 18px;
     font-weight: bold;
     color: white;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 .friendships {
@@ -442,6 +442,19 @@ footer {
     flex-direction: row-reverse;
     flex-wrap: nowrap;
     margin-left: 80px;
+}
+
+.buttonFriendships {
+    float: right;
+    border-radius: 51px;
+    border: 2px solid white;
+    background: white;
+    color: #6296E4;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 0 5px;
+    margin-right: 5px;
+    cursor: pointer;
 }
 
 .navImg {
