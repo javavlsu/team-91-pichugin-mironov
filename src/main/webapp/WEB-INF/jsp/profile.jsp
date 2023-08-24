@@ -87,7 +87,7 @@
                             </form>
                             <a class="buttonExit" href="/logout">Выход</a>
                         </c:if>
-                        <c:if test="${!alreadyFriends}">
+                        <c:if test="${!almostFriends}">
                             <c:if test="${user.username != pageContext.request.userPrincipal.name}">
                                 <form method="POST" action="/addFriendship">
                                     <input type="hidden" name="friendname" value="${user.username}">
@@ -95,6 +95,16 @@
                                     <button type="submit" class="buttonEdit">Добавить в друзья</button>
                                 </form>
                             </c:if>
+                        </c:if>
+                        <c:if test="${alreadyFriends}">
+                            <form method="POST" action="/deleteFriend">
+                                <input type="hidden" name="idF" value="${user.id_user}">
+                                <input type="hidden" name="idU" value="${friend.id_user}">
+                                <button type="submit" class="buttonEdit">Удалить из друзей</button>
+                            </form>
+                        </c:if>
+                        <c:if test="${almostFriends && !alreadyFriends}">
+                            Запрос на дружбу отправлен
                         </c:if>
 
                     </div>

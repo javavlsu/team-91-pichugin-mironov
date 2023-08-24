@@ -38,15 +38,13 @@ public class FriendService {
                 userFriends.add(userRepository.findByUsername(friend.getUsername()));
             }
         }
-        if (userFriends.isEmpty()) {
-            userFriends.clear();
-            userFriendships = friendRepository.findFriendByIdU(user.getId_user());
-            for (Friend friend : userFriendships) {
-                if (friend.isConfirm()){
-                    userFriends.add(userRepository.findByUsername(friend.getFriendUsername()));
-                }
+        userFriendships = friendRepository.findFriendByIdU(user.getId_user());
+        for (Friend friend : userFriendships) {
+            if (friend.isConfirm()){
+                userFriends.add(userRepository.findByUsername(friend.getFriendUsername()));
             }
         }
+
         return userFriends;
     }
 
@@ -68,16 +66,33 @@ public class FriendService {
         return true;
     }
 
-    public boolean isExist(String username, String friendUsername ) {
+    public boolean isExist(String username, String friendUsername) {
+        try{
+            Friend friendship = friendRepository.findFriendByUsernameAndFriendUsername(username, friendUsername);
+            if (friendship == null) {
+                friendship = friendRepository.findFriendByUsernameAndFriendUsername(friendUsername, username);
+            }
+            int a =1;
+            if (friendship.getUsername().equals(friendUsername)) {
+                return true;
+            }
+            a = 1;
+            if (friendship.isConfirm()){
+                return true;
+            }
+        } catch (NullPointerException e){
+            System.err.println("Нет дружбы с пользователем");
+        }
+        return false;
+    }
+
+    public boolean isConfirm(String username, String friendUsername ) {
         try{
             Friend friendship = friendRepository.findFriendByUsernameAndFriendUsername(username, friendUsername);
             if (friendship == null) {
                 friendship = friendRepository.findFriendByUsernameAndFriendUsername(friendUsername, username);
             }
             if (friendship.isConfirm()){
-                return true;
-            }
-            if (friendship.getUsername().equals(friendUsername)) {
                 return true;
             }
         } catch (NullPointerException e){
