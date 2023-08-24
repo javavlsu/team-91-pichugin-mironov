@@ -30,7 +30,7 @@
         <div class="main">
 
             <div style="display: flex; flex-direction: row; justify-content: space-around; align-items: center; width: 100%;">
-                <form method="post" asp-action="FriendName">
+                <form method="post">
                     <div class="contentID">
                         <div class="titleID">Введите фрагмент фамилии или имени пользователя:</div>
                         <form:form method="POST" action="findFriendsSubstring">

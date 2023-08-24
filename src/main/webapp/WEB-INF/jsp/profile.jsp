@@ -119,13 +119,14 @@
                                     ${user.userDescription}
                                 </div>
                             </div>
-
-                            <div class="Text">
-                                Ссылка на мессенджер:
-                                <div class="input1">
-                                    <a href="${user.linkMes}" style="color:white">${user.linkMes}</a>
+                            <c:if test="${alreadyFriends || user.username == pageContext.request.userPrincipal.name}">
+                                <div class="Text">
+                                    Ссылка на мессенджер:
+                                    <div class="input1">
+                                            <a href="${user.linkMes}" style="color:white">${user.linkMes}</a>
+                                    </div>
                                 </div>
-                            </div>
+                            </c:if>
                         </div>
                     </div>
 

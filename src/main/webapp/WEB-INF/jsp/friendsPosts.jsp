@@ -33,9 +33,8 @@
                 <div class="titleLeft">
                     Отоброжение постов
                 </div>
-                <form:form method="GET" action="friendsPosts">
-                    <input type="hidden" name="username" value="${pageContext.request.userPrincipal.name}">
-                    <input type="submit" class="buttonLeft" value="Посты друзей" />
+                <form:form method="GET" action="posts">
+                    <input type="submit" class="buttonLeft" value="Все посты" />
                 </form:form>
 <%--                <form method="POST" action="#" class="contentLeftIn">--%>
 <%--                    <div class="titleLeftIn">--%>

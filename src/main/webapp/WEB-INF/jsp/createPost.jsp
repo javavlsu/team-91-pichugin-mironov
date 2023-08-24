@@ -46,22 +46,11 @@
                     <form:textarea path="description" required="required" minlength="2" maxlength="200" rows="1" class="inputBig"/>
                 </div>
 
-                <div class="Text">
-                    Хобби:
-                    <select name="HobbyID" class="inputSel">
-                        <option value="100">-</option>
-                        <option value="35">Спорт</option>
-                        <option value="36">Музыка</option>
-                        <option value="37">Кино</option>
-                        <option value="38">Творчество</option>
-                        <option value="39">Путешествия</option>
-                        <option value="40">Коллекционирование</option>
-                        <option value="41">Компьютерные-игры</option>
-                        <option value="42">Мода</option>
-                        <option value="43">Разное</option>
-                        <option value="1">Интеллектуальные игры</option>
-                    </select>
-                </div>
+<%--                <div class="Text">--%>
+<%--                    Тэги:--%>
+<%--                    <form:input type="text" path="tags"--%>
+<%--                                minlength="2" maxlength="100" class="input"/>--%>
+<%--                </div>--%>
 
                 <div style=" display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 100%; margin-top: 10%; ">
                     <a class="button1" href="posts">Назад</a>

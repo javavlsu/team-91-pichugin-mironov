@@ -78,7 +78,7 @@ public class FriendService {
             if (friendship.isConfirm()){
                 return true;
             }
-        } catch (NullPointerException e){
+        } catch (NullPointerException ignored){
         }
         return false;
     }
@@ -92,7 +92,7 @@ public class FriendService {
             if (friendship.isConfirm()){
                 return true;
             }
-        } catch (NullPointerException e){
+        } catch (NullPointerException ignored){
         }
         return false;
     }

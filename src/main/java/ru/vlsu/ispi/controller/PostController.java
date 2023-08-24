@@ -32,6 +32,14 @@ public class PostController {
         return "posts";
     }
 
+    @GetMapping("/friendsPosts")
+    public String FriendsPosts(@RequestParam(required = false, defaultValue = "" ) String username,
+                            Model model) {
+        model.addAttribute("allPosts", postService.allPosts(username));
+        model.addAttribute("allComments", commentService.allComments());
+        return "friendsPosts";
+    }
+
     @GetMapping("/createPost")
     public String createPost(@RequestParam(required = true, defaultValue = "" ) String username,
                              Model model) {
@@ -41,10 +49,9 @@ public class PostController {
     }
 
     @PostMapping("/createPost")
-    public String addPost(@ModelAttribute("postForm") @Valid Post postForm,
+    public String addPost(@ModelAttribute("postForm") Post postForm,
                           @ModelAttribute("user") User user,
-                          BindingResult bindingResult,
-                          Model model) {
+                          BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
             return "createPost";
@@ -54,6 +61,5 @@ public class PostController {
 
         return "redirect:/posts";
     }
-
 
 }
