@@ -98,8 +98,8 @@
                         </c:if>
                         <c:if test="${alreadyFriends}">
                             <form method="POST" action="/deleteFriend">
-                                <input type="hidden" name="idF" value="${user.id_user}">
-                                <input type="hidden" name="idU" value="${friend.id_user}">
+                                <input type="hidden" name="friendUsername" value="${user.username}">
+                                <input type="hidden" name="username" value="${pageContext.request.userPrincipal.name}">
                                 <button type="submit" class="buttonEdit">Удалить из друзей</button>
                             </form>
                         </c:if>
@@ -153,7 +153,7 @@
                                                     </form>
                                                 </div>
                                                 <div>
-                                                    <form method="POST" action="/deleteFriend">
+                                                    <form method="POST" action="/deleteFriendship">
                                                         <input type="hidden" name="idF" value="${user.id_user}">
                                                         <input type="hidden" name="idU" value="${friend.id_user}">
                                                         <button type="submit" class="buttonFriendships">Отказаться</button>

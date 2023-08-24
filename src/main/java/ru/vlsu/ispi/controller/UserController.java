@@ -48,8 +48,7 @@ public class UserController {
 
     @PostMapping("/editProfile")
     public String editProfile(@ModelAttribute("userForm") @Valid User userForm,
-                             BindingResult bindingResult,
-                             Model model) {
+                             BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
             return "editProfile";

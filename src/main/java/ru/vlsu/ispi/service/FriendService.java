@@ -72,16 +72,13 @@ public class FriendService {
             if (friendship == null) {
                 friendship = friendRepository.findFriendByUsernameAndFriendUsername(friendUsername, username);
             }
-            int a =1;
             if (friendship.getUsername().equals(friendUsername)) {
                 return true;
             }
-            a = 1;
             if (friendship.isConfirm()){
                 return true;
             }
         } catch (NullPointerException e){
-            System.err.println("Нет дружбы с пользователем");
         }
         return false;
     }
@@ -96,7 +93,6 @@ public class FriendService {
                 return true;
             }
         } catch (NullPointerException e){
-            System.err.println("Нет дружбы с пользователем");
         }
         return false;
     }
@@ -107,8 +103,19 @@ public class FriendService {
         friendRepository.save(friendship);
     }
 
-    public void deleteFriend(Long idF, Long idU) {
+    public void deleteFriendship(Long idF, Long idU) {
         Friend friendship = friendRepository.findFriendByIdFAndIdU(idF, idU);
+        if (friendship == null) {
+            friendship = friendRepository.findFriendByIdFAndIdU(idU, idF);
+        }
+        friendRepository.delete(friendship);
+    }
+
+    public void deleteFriend(String friendUsername, String username) {
+        Friend friendship = friendRepository.findFriendByUsernameAndFriendUsername(friendUsername, username);
+        if (friendship == null) {
+            friendship = friendRepository.findFriendByUsernameAndFriendUsername(username, friendUsername);
+        }
         friendRepository.delete(friendship);
     }
 }
