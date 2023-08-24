@@ -1,3 +1,5 @@
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Date" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
@@ -44,10 +46,16 @@
 
                         <div class="Text">
                             <p>Дата рождения: </p>
+                            <%!
+                                String getCurrentDate()
+                                {
+                                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                                    return sdf.format(new Date());
+                                }
+                            %>
                             <form:input type="date" path="birthday"
-                                        required="required" cssClass="inputDate"></form:input>
+                                        required="required" min="1900-01-01" max="<%= getCurrentDate() %>" cssClass="inputDate"></form:input>
                         </div>
-
                         <div class="Text">
                             <p>Пол: </p>
                             <form:select path="pol" required="" cssClass="inputSel">
