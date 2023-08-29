@@ -18,7 +18,6 @@
             <div class="header-intro">
                 <div class="logo">Logo</div>
                 <nav class="nav">
-                    <a class="nav_link" href="/logout">Выход</a>
                     <a class="nav_link" href="/registration">Регистрация</a>
                     <a class="nav_link" href="/login">Вход</a>
                 </nav>
@@ -27,7 +26,6 @@
 
         <div class="main">
             <div class="content">
-                ${pageContext.request.userPrincipal.name} <!-- Это временно, чтобы видеть авторизованного пользователя -->
                 <div class="main_title">Найди друзей по интересам!</div>
                 <a class="main_link" href="/registration">Начать!</a>
             </div>

@@ -35,12 +35,12 @@ public class UserController {
                 model.addAttribute("alreadyFriends", true);
             }
         }
-
         return "profile";
     }
 
     @GetMapping("/editProfile")
-    public String viewInfProfile(@RequestParam(required = true, defaultValue = "" ) Long id_user, Model model) {
+    public String viewInfProfile(@RequestParam(required = true, defaultValue = "" ) Long id_user,
+                                 Model model) {
         model.addAttribute("user", userService.findUserById(id_user));
         model.addAttribute("userForm", new User());
         return "editProfile";
@@ -49,15 +49,12 @@ public class UserController {
     @PostMapping("/editProfile")
     public String editProfile(@ModelAttribute("userForm") @Valid User userForm,
                              BindingResult bindingResult) {
-
         if (bindingResult.hasErrors()) {
             return "editProfile";
         }
-
         if (!userService.updateUser(userForm)){
             return "editProfile";
         }
-
         return "redirect:/posts";
     }
 }

@@ -22,11 +22,9 @@ public class UserService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username);
-
         if (user == null) {
             throw new UsernameNotFoundException("User not found");
         }
-
         return user;
     }
 
@@ -38,6 +36,7 @@ public class UserService implements UserDetailsService {
     public List<User> allUsers() {
         return userRepository.findAll();
     }
+
     public List<User> allUsers(String substring) {
         List<User> users = new ArrayList<>(userRepository.findAll());
         users.removeIf(user -> !(user.getLastName().toLowerCase() + " " + user.getName().toLowerCase()).contains(substring));

@@ -21,10 +21,7 @@ public class Friend implements GrantedAuthority {
     @ManyToOne
     private User user;
 
-
-    public Friend() {
-
-    }
+    public Friend() {}
 
     public Friend(Long idU, Long idF, String username, String friendUsername) {
         this.idU = idU;

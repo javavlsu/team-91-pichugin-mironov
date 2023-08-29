@@ -28,7 +28,6 @@ public class AdminController {
         if (action.equals("delete")){
             userService.deleteUser(id_user);
         }
-
         if (action.equals("update")){
             model.addAttribute("user",userService.findUserById(id_user));
             model.addAttribute("userForm", new User());
@@ -38,23 +37,19 @@ public class AdminController {
     }
 
     @GetMapping("/updateUser")
-    public String userInfo(Model model){
+    public String userInfo(){
         return "updateUser";
     }
 
     @PostMapping("/updateUser")
     public String updateUser(@ModelAttribute("userForm") @Valid User userForm,
-                             BindingResult bindingResult,
-                             Model model) {
-
+                             BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "updateUser";
         }
-
         if (!userService.updateUser(userForm)){
             return "updateUser";
         }
-
         return "redirect:/admin";
     }
 

@@ -18,24 +18,16 @@ public class Post implements GrantedAuthority {
     private Long id;
     private String title;
     private String description;
-    private String tags;
     private String startTime;
-    private Boolean hide;
 
     @ManyToOne
     @JoinColumn(name="id_user", nullable = false)
     private User user;
-
-    @Transient
-    @ManyToMany(mappedBy = "post")
-    private Set<Hobby> hobby;
-
     @OneToMany(mappedBy="post")
     private Set<Comment> comment;
 
-    public Post() {
+    public Post() {}
 
-    }
     public void setStartTime(LocalDateTime time){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm");
         this.startTime = time.format(formatter);

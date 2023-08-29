@@ -18,32 +18,28 @@ public class FriendController {
 
     @PostMapping("/addFriendship")
     public String addFriend(@RequestParam(required = true, defaultValue = "" ) String friendname,
-                            @RequestParam(required = true, defaultValue = "" ) String username,
-                            Model model){
+                            @RequestParam(required = true, defaultValue = "" ) String username) {
         friendService.addFriendship(friendname, username);
         return "redirect:/posts";
     }
 
     @PostMapping("/addFriend")
     public String addFriend(@RequestParam(required = true, defaultValue = "" ) Long idF,
-                            @RequestParam(required = true, defaultValue = "" ) Long idU,
-                            Model model) {
+                            @RequestParam(required = true, defaultValue = "" ) Long idU) {
         friendService.addFriend(idF, idU);
         return "redirect:/posts";
     }
 
     @PostMapping("/deleteFriendship")
     public String deleteFriendship(@RequestParam(required = true, defaultValue = "" ) Long idF,
-                               @RequestParam(required = true, defaultValue = "" ) Long idU,
-                               Model model) {
+                               @RequestParam(required = true, defaultValue = "" ) Long idU) {
         friendService.deleteFriendship(idF, idU);
         return "redirect:/posts";
     }
 
     @PostMapping("/deleteFriend")
     public String deleteFriend(@RequestParam(required = true, defaultValue = "" ) String friendUsername,
-                                   @RequestParam(required = true, defaultValue = "" ) String username,
-                                   Model model) {
+                                   @RequestParam(required = true, defaultValue = "" ) String username) {
         friendService.deleteFriend(friendUsername, username);
         return "redirect:/posts";
     }

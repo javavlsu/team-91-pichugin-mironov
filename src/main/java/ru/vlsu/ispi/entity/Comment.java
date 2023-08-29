@@ -2,7 +2,6 @@ package ru.vlsu.ispi.entity;
 
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -15,7 +14,7 @@ public class Comment implements GrantedAuthority {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_comment;
-    private String CommentName; // Название (Содержание) комментария
+    private String CommentName;
     private String startCommentTime;
 
     @ManyToOne
@@ -26,13 +25,7 @@ public class Comment implements GrantedAuthority {
     @JoinColumn(name="id_user", nullable = false)
     private User user;
 
-    public Comment() {
-
-    }
-
-    public Comment(Long id_comment) {
-        this.id_comment = id_comment;
-    }
+    public Comment() {}
 
     public void setStartCommentTime(LocalDateTime time){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm");

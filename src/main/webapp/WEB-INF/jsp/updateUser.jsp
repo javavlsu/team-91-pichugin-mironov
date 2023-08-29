@@ -19,8 +19,6 @@
             <div class="logo">Logo</div>
             <nav class="nav">
                 <a class="nav_link" href="/admin">Пользователи</a>
-                <a class="nav_link" href="#">Жалобы</a>
-                <a class="nav_link" href="#">Посты</a>
                 <a class="nav_link" href="#">
                     ${pageContext.request.userPrincipal.name}
                 </a>

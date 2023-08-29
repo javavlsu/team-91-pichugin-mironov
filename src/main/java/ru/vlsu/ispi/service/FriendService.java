@@ -49,7 +49,7 @@ public class FriendService {
     }
 
     public boolean addFriendship(String friendUsername, String username) {
-        User newFriend = userRepository.findByUsername(friendUsername); // подгрузка того, кого мы хотим добавить в друзья
+        User newFriend = userRepository.findByUsername(friendUsername);
         User user = userRepository.findByUsername(username);
         Friend friendship = friendRepository.findFriendByUsernameAndFriendUsername(username, friendUsername);
         if (friendship == null) {
@@ -62,7 +62,6 @@ public class FriendService {
             friendship = new Friend(user.getId_user(), newFriend.getId_user(), username, friendUsername);
             friendRepository.save(friendship);
         }
-
         return true;
     }
 
@@ -78,8 +77,7 @@ public class FriendService {
             if (friendship.isConfirm()){
                 return true;
             }
-        } catch (NullPointerException ignored){
-        }
+        } catch (NullPointerException ignored){}
         return false;
     }
 
@@ -92,8 +90,7 @@ public class FriendService {
             if (friendship.isConfirm()){
                 return true;
             }
-        } catch (NullPointerException ignored){
-        }
+        } catch (NullPointerException ignored){}
         return false;
     }
 

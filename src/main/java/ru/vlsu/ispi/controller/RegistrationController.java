@@ -27,16 +27,13 @@ public class RegistrationController {
     public String addUser(@ModelAttribute("userForm") @Valid User userForm,
                           BindingResult bindingResult,
                           Model model) {
-
         if (bindingResult.hasErrors()) {
             return "registration";
         }
-
         if (!userService.saveUser(userForm)){
             model.addAttribute("usernameError", "Пользователь с таким логином уже существует");
             return "registration";
         }
-
         return "redirect:/";
     }
 }

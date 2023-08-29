@@ -14,8 +14,6 @@ import ru.vlsu.ispi.service.CommentService;
 import ru.vlsu.ispi.service.PostService;
 import ru.vlsu.ispi.service.UserService;
 
-import javax.validation.Valid;
-
 @Controller
 public class PostController {
     @Autowired
@@ -52,13 +50,10 @@ public class PostController {
     public String addPost(@ModelAttribute("postForm") Post postForm,
                           @ModelAttribute("user") User user,
                           BindingResult bindingResult) {
-
         if (bindingResult.hasErrors()) {
             return "createPost";
         }
-
         postService.savePost(postForm, user);
-
         return "redirect:/posts";
     }
 

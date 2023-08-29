@@ -22,26 +22,19 @@ public class User implements UserDetails {
     private String linkMes;
     private String birthday;
     private Boolean pol;
-
     @Size(min=3, message = "Не меньше 3 знаков")
     private String username;
     @Size(min=3, message = "Не меньше 3 знаков")
     private String password;
+
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
-    @ManyToMany(fetch = FetchType.EAGER)
-    private Set<Hobby> hobby;
     @OneToMany(mappedBy="user")
     private Set<Friend> friend;
-
     @OneToMany(mappedBy="user")
     private Set<Post> post;
-
     @OneToMany(mappedBy="user")
     private Set<Comment> comment;
-
-    @OneToMany(mappedBy="user")
-    private Set<Warning> warning;
 
     public User(){
 
