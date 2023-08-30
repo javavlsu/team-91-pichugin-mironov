@@ -33,7 +33,7 @@ public class PostController {
     @GetMapping("/friendsPosts")
     public String FriendsPosts(@RequestParam(required = false, defaultValue = "" ) String username,
                             Model model) {
-        model.addAttribute("allPosts", postService.allPosts(username));
+        model.addAttribute("allPosts", postService.allFriendsPosts(username));
         model.addAttribute("allComments", commentService.allComments());
         return "friendsPosts";
     }

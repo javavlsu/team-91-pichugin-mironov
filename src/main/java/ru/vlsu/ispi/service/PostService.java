@@ -25,7 +25,7 @@ public class PostService {
     public List<Post> allPosts() {
         return postRepository.findAll();
     }
-    public List<Post> allPosts(String username) {
+    public List<Post> allFriendsPosts(String username) {
         User user = userRepository.findByUsername(username);
         List<Friend> userFriends = friendRepository.findFriendByIdF(user.getId_user());
         userFriends.addAll(friendRepository.findFriendByIdU(user.getId_user()));
@@ -50,12 +50,16 @@ public class PostService {
     }
 
     public boolean savePost(Post post, User user) {
-        post.setHide(false);
         post.setStartTime(LocalDateTime.now());
         post.setUser(user);
         postRepository.save(post);
 
         return true;
+    }
+
+    public List<Post> allUserPosts(String username) {
+        User user = userRepository.findByUsername(username);
+        return postRepository.findAllByUser(user);
     }
 
     public boolean updatePost(Post post, User user) {

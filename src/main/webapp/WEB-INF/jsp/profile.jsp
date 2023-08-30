@@ -168,6 +168,93 @@
                         </div>
                     </c:if>
 
+                    <div style="display: flex;flex-direction: row-reverse;flex-wrap: nowrap;margin-top: 2%;">
+                        <c:forEach items="${listPosts}" var="post">
+                            <div class="post">
+                                <div class="title">
+                                    <div>
+                                        <b>${post.title}</b>
+                                    </div>
+                                </div>
+                                <div class="dateTimePost">
+                                    <a href="/profile?username=${post.user.username}&user=${pageContext.request.userPrincipal.name}">
+                                        <img src="https://clck.ru/33MEpQ" alt="фото пользователя" class="navImg">
+                                    </a>
+                                    <div class="ProfilePost">
+                                        <a href="/profile?username=${post.user.username}&user=${pageContext.request.userPrincipal.name}" style="text-decoration: none; color: white; font-size: 16.5px; line-height: 22px; font-weight: 570;">${post.user.lastName} ${post.user.name}</a>
+                                        <div>
+                                                ${post.startTime}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="">
+                                    <img src="https://sun9-77.userapi.com/impg/VyjXV9OkJvXghffY7KCVxkmmo_aIXFfTj2y3lw/MBC4FuOngiQ.jpg?size=480x376&quality=96&sign=b6aba0cc7167bfb06ad23611b60bc793&type=album" alt="фото поста" class="PostImg">
+                                </div>
+
+                                <div class="titleD">
+                                    <b>Описание:</b>
+                                </div>
+                                <div class="textDescription">
+                                        ${post.description}
+                                </div>
+                                <hr style="width: 90%; visibility: hidden;">
+
+                                    <%--                        @if (User.FindFirst(x => x.Type == ClaimTypes.Name).Value == pst.Login)--%>
+                                    <%--                        {--%>
+                                    <%--                        <a class="buttonMenu" asp-action="EditPostU" asp-route-id="@pst.PostID" asp-controller="User">Редактировать</a>--%>
+                                    <%--                        <a class="buttonMenu" asp-action="DeletePostU" asp-route-id="@pst.PostID" asp-controller="User">Удалить</a>--%>
+                                    <%--                        }--%>
+
+                                    <%--                    </div>--%>
+
+                                <div class="commentSection">
+                                    <div class="newComment">
+                                        <form method="POST" action="posts"  class="formComment">
+                                            <input type="hidden" name="username" value="${pageContext.request.userPrincipal.name}">
+                                            <input type="hidden" name="id" value="${post.id}">
+                                            <input type="text" name="commentName"
+                                                   minlength="1" maxlength="300" placeholder="Написать комментарий.." class="inputNewComment"/>
+                                            <input type="submit" value="Отправить" class="buttonComment">
+                                        </form>
+                                    </div>
+                                    <div style="display: flex; flex-direction: column-reverse;">
+                                        <c:forEach items="${allComments}" var="comment">
+                                            <c:if test="${post.id == comment.post.id}">
+                                                <div class="comment">
+                                                    <div class="userComment">
+                                                        <a href="/profile?username=${comment.user.username}&user=${pageContext.request.userPrincipal.name}">
+                                                            <img src="https://clck.ru/33MEpQ" alt="фото пользователя" class="navImg">
+                                                        </a>
+                                                    </div>
+                                                    <div class="textComment">
+                                                        <div style="font-size: 16.5px; line-height: 22px; font-weight: 570;">
+                                                            <a href="/profile?username=${comment.user.username}&user=${pageContext.request.userPrincipal.name}" style="text-decoration: none; color: white;">${comment.user.lastName} ${comment.user.name}</a>
+                                                        </div>
+                                                        <div style="font-size: 14.5px; word-wrap: break-word;">
+                                                                ${comment.commentName}
+                                                        </div>
+                                                        <div style="font-size: 12.5px; line-height: 20px">
+                                                                ${comment.startCommentTime}
+                                                        </div>
+                                                    </div>
+                                                    <c:if test="${comment.user.username == pageContext.request.userPrincipal.name || pageContext.request.userPrincipal.name == post.user.username}">
+                                                        <div class="deleteComment">
+                                                            <form method="GET" action="" class="">
+                                                                <input type="hidden" name="username" value="${pageContext.request.userPrincipal.name}" >
+                                                                <input type="submit" value="Удалить" class="buttonComment"/>
+                                                            </form>
+                                                        </div>
+                                                    </c:if>
+                                                </div>
+                                            </c:if>
+                                        </c:forEach>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </div>
+
                 </div>
 
 

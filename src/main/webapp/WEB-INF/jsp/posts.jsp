@@ -37,24 +37,6 @@
                     <input type="hidden" name="username" value="${pageContext.request.userPrincipal.name}">
                     <input type="submit" class="buttonLeft" value="Посты друзей" />
                 </form:form>
-<%--                <form method="POST" action="#" class="contentLeftIn">--%>
-<%--                    <div class="titleLeftIn">--%>
-<%--                        Поиск по хобби--%>
-<%--                    </div>--%>
-<%--                    <select name="id" class="inputSel">--%>
-<%--                        <option value="1">Интеллектуальные игры</option>--%>
-<%--                        <option value="35">Спорт</option>--%>
-<%--                        <option value="36">Музыка</option>--%>
-<%--                        <option value="37">Кино</option>--%>
-<%--                        <option value="38">Творчество</option>--%>
-<%--                        <option value="39">Путешествия</option>--%>
-<%--                        <option value="40">Коллекционирование</option>--%>
-<%--                        <option value="41">Компьютерные игры</option>--%>
-<%--                        <option value="42">Мода</option>--%>
-<%--                        <option value="43">Разное</option>--%>
-<%--                    </select>--%>
-<%--                    <input type="submit" class="buttonLeft" value="Найти посты" />--%>
-<%--                </form>--%>
             </div>
 
             <div style="display: flex; flex-direction: column-reverse;">
@@ -87,14 +69,6 @@
                     <div class="textDescription">
                         ${post.description}
                     </div>
-
-<%--                    <div class="titleHobby">--%>
-<%--                        Тэги:--%>
-<%--                    </div>--%>
-<%--                    <div class="hobby">--%>
-<%--                        ${post.tags}--%>
-<%--                    </div>--%>
-
                     <hr style="width: 90%; visibility: hidden;">
 
 <%--                        @if (User.FindFirst(x => x.Type == ClaimTypes.Name).Value == pst.Login)--%>
