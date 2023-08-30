@@ -168,7 +168,7 @@
                         </div>
                     </c:if>
 
-                    <div style="display: flex;flex-direction: row-reverse;flex-wrap: nowrap;margin-top: 2%;">
+                    <div style="display: flex;flex-direction: row-reverse;flex-wrap: wrap;margin-top: 2%;">
                         <c:forEach items="${listPosts}" var="post">
                             <div class="post">
                                 <div class="title">
